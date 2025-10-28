@@ -3,144 +3,118 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZIMSEC SOCIETY 🇿🇼</title>
+<title>ZIMSEC LIBRARY 🇿🇼</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="css/style.css">
+<meta name="author" content="ELONSK">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="robots" content="noindex,nofollow">
 </head>
 <body>
-<canvas id="star-canvas"></canvas>
+<!-- Moving Stars Background -->
+<canvas id="stars"></canvas>
 
 <!-- Header -->
 <header class="header">
-    <div class="logo">
-        <i class="fab fa-whatsapp"></i>
-        <h1>ZIMSEC SOCIETY 🇿🇼</h1>
-    </div>
-    <div class="counter">
-        <i class="fas fa-users"></i> Visitors: <span id="count">0</span>
-    </div>
+  <div class="logo">
+    <i class="fas fa-book"></i>
+    <h1>ZIMSEC LIBRARY 🇿🇼</h1>
+  </div>
+  <div class="counter">
+    <i class="fas fa-users"></i> Visitors: <span id="count">0</span>
+  </div>
 </header>
 
 <!-- Navigation -->
 <nav class="nav">
-    <button class="nav-btn" onclick="showPage('home')">Home</button>
-    <button class="nav-btn" onclick="showPage('pdf')">PDF Resources</button>
-    <button class="nav-btn" onclick="showPage('contact')">Contact Us</button>
+  <button class="nav-btn" onclick="showPage('home')">Home</button>
+  <button class="nav-btn" onclick="showPage('pdf')">Subjects</button>
+  <button class="nav-btn" onclick="showPage('contact')">Contact</button>
 </nav>
 
+<!-- Main Container -->
 <div class="container">
-
-    <!-- HOME PAGE -->
-    <div id="home-page">
-        <div class="hero">
-            <h2>WhatsApp Channels</h2>
-            <p>Access exclusive educational content and resources for ZIMSEC students</p>
-        </div>
-
-        <div class="grid">
-            <!-- Channel Example -->
-            <div class="card">
-                <div class="card-img">
-                    <img src="images/2.jpg" alt="Project Helpers">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title"><i class="fab fa-whatsapp"></i> Project Helpers 2025</h3>
-                    <p class="card-desc">Get assistance with projects, assignments and academic work from experts and fellow students.</p>
-                    <div class="card-meta">
-                        <span><i class="fas fa-users"></i> 12.5K subscribers</span>
-                        <span>Education</span>
-                    </div>
-                    <button class="join-btn" onclick="window.open('https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p','_blank')">Join Channel</button>
-                </div>
-            </div>
-
-            <div class="card">
-                <div class="card-img">
-                    <img src="images/1.jpg" alt="Zimsec Papers">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title"><i class="fab fa-whatsapp"></i> Zimsec Past Papers</h3>
-                    <p class="card-desc">Access comprehensive collection of ZIMSEC past exam papers and study resources for all subjects.</p>
-                    <div class="card-meta">
-                        <span><i class="fas fa-users"></i> 28.7K subscribers</span>
-                        <span>Education</span>
-                    </div>
-                    <button class="join-btn" onclick="window.open('https://whatsapp.com/channel/0029VbAdOQuFi8xTtr39BB1D','_blank')">Join Channel</button>
-                </div>
-            </div>
-        </div>
+  <!-- Home Page (Netflix-style) -->
+  <div id="home-page" class="page">
+    <section class="hero">
+      <h2>WhatsApp Channels</h2>
+      <p>Access exclusive educational content for ZIMSEC students</p>
+    </section>
+    <div class="scrolling-cards">
+      <!-- Example Channel Card -->
+      <div class="card">
+        <img src="images/placeholder1.jpg" alt="Channel">
+        <h3>Project Helpers 2025</h3>
+        <p>Assistance with projects and assignments.</p>
+        <button onclick="window.open('https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p','_blank')">
+          Join Channel <i class="fab fa-whatsapp"></i>
+        </button>
+      </div>
+      <div class="card">
+        <img src="images/placeholder2.jpg" alt="Channel">
+        <h3>Zimsec Past Papers</h3>
+        <p>Access past exam papers for all subjects.</p>
+        <button onclick="window.open('https://whatsapp.com/channel/0029VbAdOQuFi8xTtr39BB1D','_blank')">
+          Join Channel <i class="fab fa-whatsapp"></i>
+        </button>
+      </div>
+      <!-- Add more channel cards -->
     </div>
+  </div>
 
-    <!-- PDF PAGE -->
-    <div id="pdf-page" class="pdf-page">
-        <div class="hero">
-            <h2>PDF Resources</h2>
-            <p>Select a subject to access educational materials</p>
-        </div>
-
-        <!-- Filter -->
-        <div class="filter-section">
-            <h3>Filter by Grade</h3>
-            <div class="filter-grid">
-                <button class="filter-btn active" onclick="filterSubjects('all')">All Grades</button>
-                <button class="filter-btn" onclick="filterSubjects('form1')">Form 1</button>
-                <button class="filter-btn" onclick="filterSubjects('form2')">Form 2</button>
-                <button class="filter-btn" onclick="filterSubjects('form3')">Form 3</button>
-                <button class="filter-btn" onclick="filterSubjects('form4')">Form 4</button>
-                <button class="filter-btn" onclick="filterSubjects('form5')">Form 5</button>
-                <button class="filter-btn" onclick="filterSubjects('form6')">Form 6</button>
-            </div>
-        </div>
-
-        <div class="subject-grid">
-            <div class="subject-card" onclick="openSubject('english')" data-grade="all form1 form2 form3 form4 form5 form6">
-                <div class="subject-icon"><i class="fas fa-book"></i></div>
-                <div class="subject-name">English</div>
-                <div class="subject-count">30+ PDFs available</div>
-            </div>
-            <div class="subject-card" onclick="openSubject('mathematics')" data-grade="all form1 form2 form3 form4 form5 form6">
-                <div class="subject-icon"><i class="fas fa-calculator"></i></div>
-                <div class="subject-name">Mathematics</div>
-                <div class="subject-count">30+ PDFs available</div>
-            </div>
-            <div class="subject-card" onclick="openSubject('science')" data-grade="all form1 form2 form3 form4 form5 form6">
-                <div class="subject-icon"><i class="fas fa-flask"></i></div>
-                <div class="subject-name">Science</div>
-                <div class="subject-count">30+ PDFs available</div>
-            </div>
-            <div class="subject-card" onclick="openSubject('history')" data-grade="all form1 form2 form3 form4 form5 form6">
-                <div class="subject-icon"><i class="fas fa-monument"></i></div>
-                <div class="subject-name">History</div>
-                <div class="subject-count">30+ PDFs available</div>
-            </div>
-            <div class="subject-card" onclick="openSubject('geography')" data-grade="all form1 form2 form3 form4 form5 form6">
-                <div class="subject-icon"><i class="fas fa-globe-africa"></i></div>
-                <div class="subject-name">Geography</div>
-                <div class="subject-count">30+ PDFs available</div>
-            </div>
-        </div>
+  <!-- Subjects Page (Scribd-style PDF grid) -->
+  <div id="pdf-page" class="page" style="display:none;">
+    <section class="hero">
+      <h2>Subjects</h2>
+      <p>Select a subject to see PDF resources</p>
+    </section>
+    <div class="subject-grid">
+      <!-- Example Subject Card -->
+      <div class="subject-card" onclick="openSubject('english')">
+        <img src="images/placeholder3.jpg" alt="English">
+        <h3>English</h3>
+        <p>30+ PDFs</p>
+      </div>
+      <div class="subject-card" onclick="openSubject('mathematics')">
+        <img src="images/placeholder3.jpg" alt="Maths">
+        <h3>Mathematics</h3>
+        <p>30+ PDFs</p>
+      </div>
+      <!-- Add more subjects -->
     </div>
+  </div>
 
-    <!-- CONTACT PAGE -->
-    <div id="contact-page" class="contact-page">
-        <div class="contact-header">
-            <h2>Get Your Own Website</h2>
-            <p>Professional websites starting at just $1</p>
+  <!-- English PDF Page -->
+  <div id="english-page" class="subject-page" style="display:none;">
+    <button class="back-btn" onclick="goBackToSubjects()"><i class="fas fa-arrow-left"></i> Back</button>
+    <h2>English PDFs</h2>
+    <div class="pdf-grid">
+      <!-- 30 PDF slots -->
+      <div class="pdf-card">
+        <img src="images/placeholder4.jpg" alt="PDF">
+        <p>English Grammar Basics</p>
+        <div class="pdf-actions">
+          <button onclick="previewPdf('#')"><i class="fas fa-eye"></i></button>
+          <button onclick="downloadPdf('#')"><i class="fas fa-download"></i></button>
+          <button onclick="shareOnWhatsApp('#')"><i class="fab fa-whatsapp"></i></button>
         </div>
-        <div class="phone-section">
-            <h3>Call/WhatsApp Now:</h3>
-            <a href="tel:+263774503186" class="phone-number">+263 77 450 3186</a>
-            <p style="color: #b3b3b3;">Calls Preferred</p>
-        </div>
+      </div>
+      <!-- Repeat 29 more PDF cards -->
     </div>
+  </div>
 
+  <!-- Contact Page -->
+  <div id="contact-page" class="page" style="display:none;">
+    <h2>Contact ELONSK</h2>
+    <p>Call/WhatsApp: <a href="tel:+263774503186">+263 77 450 3186</a></p>
+  </div>
 </div>
 
+<!-- Footer -->
 <footer class="footer">
-    <div class="powered">POWERED BY <span>JAMTCH</span></div>
+  <p>Owner: ELONSK | GitHub: <a href="#" target="_blank">YourRepoLink</a></p>
 </footer>
 
-<script src="stars.js"></script>
-<script src="script.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
