@@ -1,119 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZIMSEC LIBRARY 🇿🇼</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZIMSEC Library</title>
 <link rel="stylesheet" href="style.css">
-<meta name="author" content="ELONSK">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-<!-- Moving Stars Background -->
-<canvas id="stars"></canvas>
 
-<!-- Header -->
-<header class="header">
-  <div class="logo">
-    <i class="fas fa-book"></i>
-    <h1>ZIMSEC LIBRARY 🇿🇼</h1>
-  </div>
-  <div class="counter">
-    <i class="fas fa-users"></i> Visitors: <span id="count">0</span>
-  </div>
-</header>
+<div class="header">
+  <h1>ZIMSEC Library</h1>
+  <div class="counter">Visitors: <span id="count">0</span></div>
+</div>
 
-<!-- Navigation -->
-<nav class="nav">
+<div class="nav">
   <button class="nav-btn" onclick="showPage('home')">Home</button>
   <button class="nav-btn" onclick="showPage('pdf')">Subjects</button>
   <button class="nav-btn" onclick="showPage('contact')">Contact</button>
-</nav>
+</div>
 
-<!-- Main Container -->
-<div class="container">
-  <!-- Home Page (Netflix-style) -->
-  <div id="home-page" class="page">
-    <section class="hero">
-      <h2>WhatsApp Channels</h2>
-      <p>Access exclusive educational content for ZIMSEC students</p>
-    </section>
-    <div class="scrolling-cards">
-      <!-- Example Channel Card -->
-      <div class="card">
-        <img src="images/placeholder1.jpg" alt="Channel">
-        <h3>Project Helpers 2025</h3>
-        <p>Assistance with projects and assignments.</p>
-        <button onclick="window.open('https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p','_blank')">
-          Join Channel <i class="fab fa-whatsapp"></i>
-        </button>
+<!-- HOME PAGE -->
+<div id="home-page">
+  <div class="grid">
+    <div class="card">
+      <img src="images/channel1.jpg" alt="">
+      <div class="card-content">
+        <h3 class="card-title"><i class="fa-solid fa-book"></i> English</h3>
+        <p class="card-desc">All English resources</p>
+        <button class="join-btn" onclick="openSubject('english')">View PDFs</button>
       </div>
-      <div class="card">
-        <img src="images/placeholder2.jpg" alt="Channel">
-        <h3>Zimsec Past Papers</h3>
-        <p>Access past exam papers for all subjects.</p>
-        <button onclick="window.open('https://whatsapp.com/channel/0029VbAdOQuFi8xTtr39BB1D','_blank')">
-          Join Channel <i class="fab fa-whatsapp"></i>
-        </button>
-      </div>
-      <!-- Add more channel cards -->
     </div>
-  </div>
-
-  <!-- Subjects Page (Scribd-style PDF grid) -->
-  <div id="pdf-page" class="page" style="display:none;">
-    <section class="hero">
-      <h2>Subjects</h2>
-      <p>Select a subject to see PDF resources</p>
-    </section>
-    <div class="subject-grid">
-      <!-- Example Subject Card -->
-      <div class="subject-card" onclick="openSubject('english')">
-        <img src="images/placeholder3.jpg" alt="English">
-        <h3>English</h3>
-        <p>30+ PDFs</p>
+    <div class="card">
+      <img src="images/channel2.jpg" alt="">
+      <div class="card-content">
+        <h3 class="card-title"><i class="fa-solid fa-book"></i> Maths</h3>
+        <p class="card-desc">All Maths resources</p>
+        <button class="join-btn" onclick="openSubject('mathematics')">View PDFs</button>
       </div>
-      <div class="subject-card" onclick="openSubject('mathematics')">
-        <img src="images/placeholder3.jpg" alt="Maths">
-        <h3>Mathematics</h3>
-        <p>30+ PDFs</p>
-      </div>
-      <!-- Add more subjects -->
     </div>
-  </div>
-
-  <!-- English PDF Page -->
-  <div id="english-page" class="subject-page" style="display:none;">
-    <button class="back-btn" onclick="goBackToSubjects()"><i class="fas fa-arrow-left"></i> Back</button>
-    <h2>English PDFs</h2>
-    <div class="pdf-grid">
-      <!-- 30 PDF slots -->
-      <div class="pdf-card">
-        <img src="images/placeholder4.jpg" alt="PDF">
-        <p>English Grammar Basics</p>
-        <div class="pdf-actions">
-          <button onclick="previewPdf('#')"><i class="fas fa-eye"></i></button>
-          <button onclick="downloadPdf('#')"><i class="fas fa-download"></i></button>
-          <button onclick="shareOnWhatsApp('#')"><i class="fab fa-whatsapp"></i></button>
-        </div>
-      </div>
-      <!-- Repeat 29 more PDF cards -->
-    </div>
-  </div>
-
-  <!-- Contact Page -->
-  <div id="contact-page" class="page" style="display:none;">
-    <h2>Contact ELONSK</h2>
-    <p>Call/WhatsApp: <a href="tel:+263774503186">+263 77 450 3186</a></p>
   </div>
 </div>
 
-<!-- Footer -->
-<footer class="footer">
-  <p>Owner: ELONSK | GitHub: <a href="#" target="_blank">YourRepoLink</a></p>
-</footer>
+<!-- SUBJECT PDF PAGE EXAMPLE -->
+<div id="english-page" class="subject-page" style="display:none;">
+  <button class="nav-btn" onclick="goBack()">Back</button>
+  <div class="pdf-grid">
+    <div class="pdf-card">
+      <i class="fa-solid fa-file-pdf pdf-icon"></i>
+      <div class="pdf-name">English Paper 1</div>
+      <button class="pdf-btn" onclick="previewPdf('pdfs/english1.pdf')">Preview</button>
+      <button class="pdf-btn" onclick="downloadPdf('pdfs/english1.pdf')">Download</button>
+      <button class="pdf-btn" onclick="shareOnWhatsApp('pdfs/english1.pdf')">Share</button>
+    </div>
+    <div class="pdf-card">
+      <i class="fa-solid fa-file-pdf pdf-icon"></i>
+      <div class="pdf-name">English Paper 2</div>
+      <button class="pdf-btn" onclick="previewPdf('pdfs/english2.pdf')">Preview</button>
+      <button class="pdf-btn" onclick="downloadPdf('pdfs/english2.pdf')">Download</button>
+      <button class="pdf-btn" onclick="shareOnWhatsApp('pdfs/english2.pdf')">Share</button>
+    </div>
+    <!-- Add more 28 PDFs similarly -->
+  </div>
+</div>
+
+<!-- CONTACT PAGE -->
+<div id="contact-page" style="display:none;text-align:center;padding:2rem;">
+  <h2>Contact / Payment</h2>
+  <p>Click call to contact us or make payment (call only)</p>
+  <button class="nav-btn" onclick="window.location.href='tel:+263771234567'">Call Now</button>
+</div>
 
 <script src="main.js"></script>
 </body>
