@@ -1,633 +1,201 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Econet Free Data Packages</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background: linear-gradient(135deg, #0f1b3a, #1a3a6d);
-            color: #fff;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80');
-            background-size: cover;
-            background-position: center;
-            filter: blur(8px);
-            z-index: -1;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            position: relative;
-            z-index: 1;
-        }
-
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo i {
-            font-size: 2.5rem;
-            color: #4da8ff;
-        }
-
-        .logo h1 {
-            font-size: 1.8rem;
-            background: linear-gradient(to right, #4da8ff, #a6d8ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 30px;
-        }
-
-        nav a {
-            color: #c2d9ff;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: #4da8ff;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: #4da8ff;
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            text-align: center;
-            padding: 80px 0;
-            position: relative;
-        }
-
-        .hero h2 {
-            font-size: 3.5rem;
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #4da8ff, #a6d8ff);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            animation: fadeIn 1s ease;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            color: #c2d9ff;
-            line-height: 1.6;
-        }
-
-        .cta-button {
-            display: inline-block;
-            background: linear-gradient(to right, #4da8ff, #2a75d1);
-            color: white;
-            padding: 15px 40px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(42, 117, 209, 0.4);
-            animation: pulse 2s infinite;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(42, 117, 209, 0.6);
-        }
-
-        .packages {
-            padding: 80px 0;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
-            color: #4da8ff;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: #4da8ff;
-        }
-
-        .package-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-
-        .package-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 30px;
-            text-align: center;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .package-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(to right, #4da8ff, #2a75d1);
-        }
-
-        .package-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .package-icon {
-            font-size: 3rem;
-            color: #4da8ff;
-            margin-bottom: 20px;
-        }
-
-        .package-title {
-            font-size: 1.8rem;
-            margin-bottom: 15px;
-            color: #a6d8ff;
-        }
-
-        .package-price {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #4da8ff;
-        }
-
-        .package-features {
-            list-style: none;
-            margin-bottom: 25px;
-            text-align: left;
-        }
-
-        .package-features li {
-            padding: 8px 0;
-            color: #c2d9ff;
-            position: relative;
-            padding-left: 25px;
-        }
-
-        .package-features li::before {
-            content: '\f00c';
-            font-family: 'Font Awesome 5 Free';
-            font-weight: 900;
-            position: absolute;
-            left: 0;
-            color: #4da8ff;
-        }
-
-        .package-button {
-            display: inline-block;
-            background: rgba(255, 255, 255, 0.1);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .package-button:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.05);
-        }
-
-        .contact {
-            padding: 80px 0;
-            text-align: center;
-        }
-
-        .contact-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 40px;
-            flex-wrap: wrap;
-        }
-
-        .contact-item {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            width: 250px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .contact-icon {
-            font-size: 2.5rem;
-            color: #4da8ff;
-        }
-
-        .contact-text {
-            color: #c2d9ff;
-        }
-
-        .contact-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #25D366;
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            margin-top: 20px;
-        }
-
-        .contact-button:hover {
-            background: #128C7E;
-            transform: scale(1.05);
-        }
-
-        .testimonials {
-            padding: 80px 0;
-        }
-
-        .testimonial-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .testimonial-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            padding: 25px;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .testimonial-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        .testimonial-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 15px;
-        }
-
-        .testimonial-avatar {
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 15px;
-            border: 2px solid #4da8ff;
-        }
-
-        .testimonial-info h4 {
-            color: #a6d8ff;
-            margin-bottom: 5px;
-        }
-
-        .testimonial-info span {
-            color: #8bb5e8;
-            font-size: 0.9rem;
-        }
-
-        .testimonial-text {
-            color: #c2d9ff;
-            line-height: 1.6;
-            font-style: italic;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: #c2d9ff;
-            font-size: 0.9rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin: 20px 0;
-        }
-
-        .footer-links a {
-            color: #c2d9ff;
-            text-decoration: none;
-            transition: all 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: #4da8ff;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes pulse {
-            0% { box-shadow: 0 5px 15px rgba(42, 117, 209, 0.4); }
-            50% { box-shadow: 0 5px 25px rgba(42, 117, 209, 0.7); }
-            100% { box-shadow: 0 5px 15px rgba(42, 117, 209, 0.4); }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 20px;
-            }
-            
-            nav ul {
-                gap: 15px;
-            }
-            
-            .hero h2 {
-                font-size: 2.5rem;
-            }
-            
-            .package-container, .testimonial-container {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Econet Free Data Packages</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+  * {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;}
+  body {background: linear-gradient(135deg,#0f1b3a,#1a3a6d); color:#fff; min-height:100vh; overflow-x:hidden; position:relative;}
+  body::before {
+    content:''; position:fixed; top:0; left:0; width:100%; height:100%;
+    background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80');
+    background-size:cover; background-position:center; filter:blur(5px); z-index:-1;
+  }
+  .container{max-width:1200px; margin:0 auto; padding:20px; position:relative; z-index:1;}
+  header{display:flex; justify-content:space-between; align-items:center; padding:20px 0; border-bottom:1px solid rgba(255,255,255,0.1);}
+  .logo{display:flex; align-items:center; gap:15px;}
+  .logo i{font-size:2.5rem; color:#4da8ff;}
+  .logo h1{font-size:1.8rem; background:linear-gradient(to right,#4da8ff,#a6d8ff); -webkit-background-clip:text; background-clip:text; color:transparent;}
+  nav ul{display:flex; list-style:none; gap:30px;}
+  nav a{color:#c2d9ff; text-decoration:none; font-weight:500; position:relative; transition:all 0.3s ease;}
+  nav a:hover{color:#4da8ff;}
+  nav a::after{content:''; position:absolute; bottom:-5px; left:0; width:0; height:2px; background:#4da8ff; transition:width 0.3s ease;}
+  nav a:hover::after{width:100%;}
+  .hero{text-align:center; padding:80px 0; position:relative;}
+  .hero h2{font-size:3.5rem; margin-bottom:20px; background:linear-gradient(to right,#4da8ff,#a6d8ff); -webkit-background-clip:text; background-clip:text; color:transparent; animation:fadeIn 1s ease;}
+  .hero p{font-size:1.2rem; max-width:700px; margin:0 auto 30px; color:#c2d9ff; line-height:1.6;}
+  .cta-button{display:inline-block; background:linear-gradient(to right,#4da8ff,#2a75d1); color:white; padding:15px 40px; border-radius:50px; text-decoration:none; font-weight:bold; font-size:1.1rem; transition:all 0.3s ease; box-shadow:0 5px 15px rgba(42,117,209,0.4); animation:pulse 2s infinite;}
+  .cta-button:hover{transform:translateY(-3px); box-shadow:0 8px 20px rgba(42,117,209,0.6);}
+  .packages{padding:80px 0;}
+  .section-title{text-align:center; margin-bottom:50px; font-size:2.5rem; color:#4da8ff; position:relative;}
+  .section-title::after{content:''; position:absolute; bottom:-10px; left:50%; transform:translateX(-50%); width:100px; height:3px; background:#4da8ff;}
+  .package-container{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px;}
+  .package-card{background:rgba(255,255,255,0.05); border-radius:15px; padding:30px; text-align:center; transition:all 0.3s ease; backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.1); position:relative; overflow:hidden;}
+  .package-card::before{content:''; position:absolute; top:0; left:0; width:100%; height:5px; background:linear-gradient(to right,#4da8ff,#2a75d1);}
+  .package-card:hover{transform:translateY(-10px); box-shadow:0 15px 30px rgba(0,0,0,0.3); background:rgba(255,255,255,0.08);}
+  .package-icon{font-size:3rem; color:#4da8ff; margin-bottom:20px;}
+  .package-title{font-size:1.8rem; margin-bottom:15px; color:#a6d8ff;}
+  .package-price{font-size:2.5rem; margin-bottom:20px; color:#4da8ff;}
+  .package-features{list-style:none; margin-bottom:25px; text-align:left;}
+  .package-features li{padding:8px 0; color:#c2d9ff; position:relative; padding-left:25px;}
+  .package-features li::before{content:'\f00c'; font-family:'Font Awesome 5 Free'; font-weight:900; position:absolute; left:0; color:#4da8ff;}
+  .package-button{display:inline-block; background:rgba(255,255,255,0.1); color:white; padding:12px 30px; border-radius:50px; text-decoration:none; font-weight:bold; transition:all 0.3s ease; border:1px solid rgba(255,255,255,0.2);}
+  .package-button:hover{background:rgba(255,255,255,0.2); transform:scale(1.05);}
+  .testimonials{padding:80px 0;}
+  .testimonial-container{display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:30px; margin-top:40px;}
+  .testimonial-card{background:rgba(255,255,255,0.05); border-radius:15px; padding:25px; transition:all 0.3s ease; backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.1);}
+  .testimonial-card:hover{transform:translateY(-5px); background:rgba(255,255,255,0.08);}
+  .testimonial-header{display:flex; align-items:center; margin-bottom:15px;}
+  .testimonial-avatar{width:50px; height:50px; border-radius:50%; object-fit:cover; margin-right:15px; border:2px solid #4da8ff;}
+  .testimonial-info h4{color:#a6d8ff; margin-bottom:5px;}
+  .testimonial-info span{color:#8bb5e8; font-size:0.9rem;}
+  .testimonial-text{color:#c2d9ff; line-height:1.6; font-style:italic;}
+  .contact{padding:80px 0; text-align:center;}
+  .contact-container{display:flex; justify-content:center; gap:30px; margin-top:40px; flex-wrap:wrap;}
+  .contact-item{display:flex; flex-direction:column; align-items:center; gap:15px; padding:30px; background:rgba(255,255,255,0.05); border-radius:15px; width:250px; transition:all 0.3s ease; backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.1);}
+  .contact-item:hover{transform:translateY(-5px); background:rgba(255,255,255,0.08);}
+  .contact-icon{font-size:2.5rem; color:#4da8ff;}
+  .contact-text{color:#c2d9ff;}
+  .contact-button{display:inline-flex; align-items:center; gap:10px; background:#25D366; color:white; padding:15px 30px; border-radius:50px; text-decoration:none; font-weight:bold; transition:all 0.3s ease; margin-top:20px;}
+  .contact-button:hover{background:#128C7E; transform:scale(1.05);}
+  footer{text-align:center; padding:30px 0; border-top:1px solid rgba(255,255,255,0.1); color:#c2d9ff; font-size:0.9rem;}
+  .footer-links{display:flex; justify-content:center; gap:20px; margin:20px 0;}
+  .footer-links a{color:#c2d9ff; text-decoration:none; transition:all 0.3s ease;}
+  .footer-links a:hover{color:#4da8ff;}
+  @keyframes fadeIn {from {opacity:0; transform:translateY(20px);} to {opacity:1; transform:translateY(0);}}
+  @keyframes pulse {0% {box-shadow:0 5px 15px rgba(42,117,209,0.4);} 50% {box-shadow:0 5px 25px rgba(42,117,209,0.7);} 100% {box-shadow:0 5px 15px rgba(42,117,209,0.4);}}
+  @media (max-width:768px){header{flex-direction:column; gap:20px;} nav ul{gap:15px;} .hero h2{font-size:2.5rem;} .package-container,.testimonial-container{grid-template-columns:1fr;}}
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="logo">
-                <i class="fas fa-wifi"></i>
-                <h1>Econet Data</h1>
-            </div>
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Packages</a></li>
-                    <li><a href="#">How It Works</a></li>
-                    <li><a href="#">Support</a></li>
-                </ul>
-            </nav>
-        </header>
+<div class="container">
+<header>
+  <div class="logo"><i class="fas fa-wifi"></i><h1>Econet Data</h1></div>
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#packages">Packages</a></li>
+      <li><a href="#">How It Works</a></li>
+      <li><a href="#contact">Support</a></li>
+    </ul>
+  </nav>
+</header>
 
-        <section class="hero">
-            <h2>Unlimited Data Packages</h2>
-            <p>Get the best value for your money with our exclusive data bundles. Stay connected with high-speed internet for all your needs - streaming, browsing, gaming, and more.</p>
-            <a href="#packages" class="cta-button">View Packages</a>
-        </section>
+<section class="hero">
+  <h2>Unlimited Data Packages</h2>
+  <p>Get the best value with our exclusive data bundles. Stay connected for streaming, browsing, gaming, and more.</p>
+  <a href="#packages" class="cta-button">View Packages</a>
+</section>
 
-        <section class="packages" id="packages">
-            <h2 class="section-title">Data Packages</h2>
-            <div class="package-container">
-                <div class="package-card">
-                    <i class="fas fa-mobile-alt package-icon"></i>
-                    <h3 class="package-title">Basic Plan</h3>
-                    <div class="package-price">$1</div>
-                    <ul class="package-features">
-                        <li>1GB High-Speed Data</li>
-                        <li>30 Days Validity</li>
-                        <li>Unlimited Social Media</li>
-                        <li>24/7 Customer Support</li>
-                        <li>Easy Recharge Options</li>
-                    </ul>
-                    <a href="#" class="package-button">Buy Now</a>
-                </div>
-
-                <div class="package-card">
-                    <i class="fas fa-laptop package-icon"></i>
-                    <h3 class="package-title">Pro Plan</h3>
-                    <div class="package-price">$2</div>
-                    <ul class="package-features">
-                        <li>400GB High-Speed Data</li>
-                        <li>60 Days Validity</li>
-                        <li>Streaming & Gaming Optimized</li>
-                        <li>Priority Customer Support</li>
-                        <li>Free Data Rollover</li>
-                        <li>Multi-Device Connectivity</li>
-                    </ul>
-                    <a href="#" class="package-button">Buy Now</a>
-                </div>
-
-                <div class="package-card">
-                    <i class="fas fa-rocket package-icon"></i>
-                    <h3 class="package-title">Ultimate Plan</h3>
-                    <div class="package-price">$20</div>
-                    <ul class="package-features">
-                        <li>1TB High-Speed Data</li>
-                        <li>90 Days Validity</li>
-                        <li>4K Streaming Support</li>
-                        <li>VIP Customer Support</li>
-                        <li>Unlimited Data Rollover</li>
-                        <li>Family Sharing Option</li>
-                        <li>Free Access to Premium Content</li>
-                    </ul>
-                    <a href="#" class="package-button">Buy Now</a>
-                </div>
-            </div>
-        </section>
-
-        <section class="testimonials">
-            <h2 class="section-title">Customer Reviews</h2>
-            <div class="testimonial-container">
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Tawanda" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <h4>Tawanda M.</h4>
-                            <span>1 minute ago</span>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">The $2 package is amazing! I got 400GB and it's been working perfectly for my online classes. Econet never disappoints!</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Rumbidzai" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <h4>Rumbidzai K.</h4>
-                            <span>15 minutes ago</span>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">I've been using the $1 package for months now. It's perfect for my daily social media and browsing needs. Great value!</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Tinashe" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <h4>Tinashe M.</h4>
-                            <span>1 hour ago</span>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">The $20 package is worth every dollar! I can stream, game, and work without any interruptions. Econet is the best!</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Chiedza" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <h4>Chiedza N.</h4>
-                            <span>2 hours ago</span>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">Customer service was very helpful when I had issues with my data bundle. They resolved it quickly. Thank you Econet!</p>
-                </div>
-
-                <div class="testimonial-card">
-                    <div class="testimonial-header">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Farai" class="testimonial-avatar">
-                        <div class="testimonial-info">
-                            <h4>Farai J.</h4>
-                            <span>5 hours ago</span>
-                        </div>
-                    </div>
-                    <p class="testimonial-text">The data speeds are incredible! I can download large files in minutes. Econet has the most reliable network in Zimbabwe.</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="contact">
-            <h2 class="section-title">Contact Us</h2>
-            <p>Have questions or need assistance? Reach out to our support team</p>
-            
-            <div class="contact-container">
-                <div class="contact-item">
-                    <i class="fab fa-whatsapp contact-icon"></i>
-                    <div class="contact-text">WhatsApp</div>
-                    <div class="contact-text">+263 78 411 2308</div>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fas fa-phone contact-icon"></i>
-                    <div class="contact-text">Call Us</div>
-                    <div class="contact-text">+263 78 411 2308</div>
-                </div>
-                
-                <div class="contact-item">
-                    <i class="fas fa-envelope contact-icon"></i>
-                    <div class="contact-text">Email</div>
-                    <div class="contact-text">support@econetdata.co.zw</div>
-                </div>
-            </div>
-            
-            <a href="https://wa.me/263784112308" class="contact-button">
-                <i class="fab fa-whatsapp"></i> Contact on WhatsApp
-            </a>
-        </section>
-
-        <footer>
-            <div class="footer-links">
-                <a href="#">Terms of Service</a>
-                <a href="#">Privacy Policy</a>
-                <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p">WhatsApp Channel</a>
-            </div>
-            <p>Owner: Collegue JAM | Powered by Econet</p>
-            <p>&copy; 2023 Econet Data. All rights reserved.</p>
-        </footer>
+<section class="packages" id="packages">
+  <h2 class="section-title">Data Packages</h2>
+  <div class="package-container">
+    <div class="package-card">
+      <i class="fas fa-mobile-alt package-icon"></i>
+      <h3 class="package-title">Basic Plan</h3>
+      <div class="package-price">$1</div>
+      <ul class="package-features">
+        <li>1GB High-Speed Data</li>
+        <li>30 Days Validity</li>
+        <li>Unlimited Social Media</li>
+        <li>24/7 Customer Support</li>
+      </ul>
+      <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p" class="package-button">Buy Now</a>
     </div>
 
-    <script>
-        // Add scroll animations
-        document.addEventListener('DOMContentLoaded', function() {
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
-            };
+    <div class="package-card">
+      <i class="fas fa-laptop package-icon"></i>
+      <h3 class="package-title">Pro Plan</h3>
+      <div class="package-price">$2</div>
+      <ul class="package-features">
+        <li>400GB High-Speed Data</li>
+        <li>60 Days Validity</li>
+        <li>Streaming & Gaming Optimized</li>
+        <li>Priority Customer Support</li>
+        <li>Free Data Rollover</li>
+      </ul>
+      <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p" class="package-button">Buy Now</a>
+    </div>
 
-            const observer = new IntersectionObserver(function(entries) {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animation = `fadeIn 1s ease forwards`;
-                    }
-                });
-            }, observerOptions);
+    <div class="package-card">
+      <i class="fas fa-rocket package-icon"></i>
+      <h3 class="package-title">Ultimate Plan</h3>
+      <div class="package-price">$20</div>
+      <ul class="package-features">
+        <li>1TB High-Speed Data</li>
+        <li>90 Days Validity</li>
+        <li>4K Streaming Support</li>
+        <li>VIP Customer Support</li>
+        <li>Unlimited Data Rollover</li>
+        <li>Family Sharing Option</li>
+      </ul>
+      <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p" class="package-button">Buy Now</a>
+    </div>
+  </div>
+</section>
 
-            const elementsToAnimate = document.querySelectorAll('.package-card, .contact-item, .testimonial-card');
-            elementsToAnimate.forEach(el => {
-                el.style.opacity = '0';
-                observer.observe(el);
-            });
-        });
-    </script>
+<section class="testimonials">
+  <h2 class="section-title">Customer Reviews</h2>
+  <div class="testimonial-container">
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <img src="https://randomuser.me/api/portraits/men/12.jpg" alt="Tawanda" class="testimonial-avatar">
+        <div class="testimonial-info"><h4>Tawanda M.</h4><span>1 minute ago</span></div>
+      </div>
+      <p class="testimonial-text">The $2 package is amazing! I got 400GB and it's perfect for my online classes.</p>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Rumbidzai" class="testimonial-avatar">
+        <div class="testimonial-info"><h4>Rumbidzai K.</h4><span>15 minutes ago</span></div>
+      </div>
+      <p class="testimonial-text">I've been using the $1 package for months. Perfect for social media and browsing.</p>
+    </div>
+
+    <div class="testimonial-card">
+      <div class="testimonial-header">
+        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Farai" class="testimonial-avatar">
+        <div class="testimonial-info"><h4>Farai J.</h4><span>5 hours ago</span></div>
+      </div>
+      <p class="testimonial-text">The data speeds are incredible! I can download large files in minutes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <h2 class="section-title">Contact Us</h2>
+  <p>Have questions or need assistance? Reach out to our support team</p>
+  <div class="contact-container">
+    <div class="contact-item"><i class="fab fa-whatsapp contact-icon"></i><div class="contact-text">WhatsApp</div><div class="contact-text">+263 78 411 2308</div></div>
+    <div class="contact-item"><i class="fas fa-phone contact-icon"></i><div class="contact-text">Call Us</div><div class="contact-text">+263 78 411 2308</div></div>
+    <div class="contact-item"><i class="fas fa-envelope contact-icon"></i><div class="contact-text">Email</div><div class="contact-text">support@econetdata.co.zw</div></div>
+  </div>
+  <a href="https://wa.me/263784112308" class="contact-button"><i class="fab fa-whatsapp"></i> Contact on WhatsApp</a>
+</section>
+
+<footer>
+  <div class="footer-links">
+    <a href="#">Terms of Service</a>
+    <a href="#">Privacy Policy</a>
+    <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p">WhatsApp Channel</a>
+  </div>
+  <p>Owner: Collegue JAM | Powered by Econet</p>
+  <p>&copy; 2023 Econet Data. All rights reserved.</p>
+</footer>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(){
+  const observerOptions = { threshold: 0.1, rootMargin:'0px 0px -50px 0px' };
+  const observer = new IntersectionObserver(function(entries){
+    entries.forEach(entry => { if(entry.isIntersecting){ entry.target.style.animation=`fadeIn 1s ease forwards`; } });
+  }, observerOptions);
+  const elements = document.querySelectorAll('.package-card, .contact-item, .testimonial-card');
+  elements.forEach(el=>{ el.style.opacity='0'; observer.observe(el); });
+});
+</script>
 </body>
 </html>
