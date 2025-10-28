@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>English — ZIMSEC LIBRARY</title>
+  <link rel="stylesheet" href="/assets/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <h1>ZIMSEC LIBRARY</h1>
+      <p class="owner">Owner: ELONSK</p>
+    </div>
+    <nav class="topnav">
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2 class="page-title">English — 30 Slots</h2>
+
+    <div class="subject-grid" id="pdf-grid">
+      <!-- 30 placeholders: replace hrefs with your real PDF paths -->
+      <!-- Layout is 5 rows x 6 columns on wide screens -->
+      <!-- Example file link: /english/01.pdf -->
+      <!-- If slot is empty, leave href="#" or remove anchor -->
+      <!-- We'll give each slot a numbered label to plug files easily -->
+      <script>
+        // JS will render 30 slots; this keeps markup short
+        const grid = [];
+        for (let i = 1; i <= 30; i++) {
+          const num = String(i).padStart(2, '0');
+          grid.push({
+            id: i,
+            label: `Slot ${i}`,
+            href: `/english/${num}.pdf` // change path if needed or to #
+          });
+        }
+        document.querySelector('head').insertAdjacentHTML('beforeend', '');
+      </script>
+    </div>
+
+    <div class="legend">
+      <p class="small">How to add PDFs: upload your PDF files into <code>/public/english/</code> and name them <code>01.pdf</code>, <code>02.pdf</code>, ... <code>30.pdf</code>. If a slot is not ready, set its href to <code>#</code>.</p>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <small>© ZIMSEC LIBRARY — Owner: ELONSK</small>
+  </footer>
+
+  <script src="/assets/main.js" defer></script>
+  <script>
+    // Render the 30 cards dynamically (so it's easy to update pattern later)
+    (function () {
+      const container = document.getElementById('pdf-grid');
+      container.innerHTML = '';
+      for (let i = 1; i <= 30; i++) {
+        const num = String(i).padStart(2, '0');
+        const card = document.createElement('a');
+        card.className = 'pdf-card';
+        // When you don't have a PDF, change the href to '#' or remove the link
+        card.href = `/english/${num}.pdf`;
+        card.target = '_blank'; // opens in new tab; change if you have a modal viewer
+        card.setAttribute('rel', 'noopener noreferrer');
+        card.innerHTML = `<div class="pdf-index">${i}</div><div class="pdf-title">English ${num}</div>`;
+        container.appendChild(card);
+      }
+    })();
+  </script>
+</body>
+</html>
