@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+   <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -9,6 +9,7 @@
     *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif;}
     :root{
         --primary:#3498db;
+        --secondary:#e74c3c;
         --card-bg:rgba(0,0,0,0.5);
         --text:#fff;
         --text-light:#ccc;
@@ -16,24 +17,44 @@
         --glass-border:rgba(255,255,255,0.2);
     }
     body{background:#0f0f0f;color:var(--text);min-height:100vh;}
-    .header{background:rgba(15,15,15,0.8);padding:1rem;text-align:center;border-bottom:3px solid var(--primary);}
+    .header{background:rgba(15,15,15,0.8);padding:1rem;text-align:center;border-bottom:3px solid var(--primary);position:sticky;top:0;z-index:100;}
     .header h1{color:var(--primary);}
-    .nav{display:flex;justify-content:center;gap:1rem;background:rgba(0,0,0,0.5);padding:1rem;}
+    .nav{display:flex;justify-content:center;gap:1rem;background:rgba(0,0,0,0.5);padding:1rem;position:sticky;top:70px;z-index:99;}
     .nav button{background:transparent;border:2px solid var(--primary);padding:0.5rem 1rem;color:var(--text);cursor:pointer;border-radius:5px;transition:0.3s;}
-    .nav button:hover{background:var(--primary);}
+    .nav button:hover, .nav button.active{background:var(--primary);}
     .container{max-width:1200px;margin:2rem auto;padding:1rem;}
     .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;}
-    .card{background:var(--card-bg);padding:1rem;border-radius:10px;text-align:center;border:1px solid var(--glass-border);}
-    .card:hover{transform:translateY(-5px);transition:0.3s;border-color:var(--primary);}
+    .card{background:var(--card-bg);padding:1rem;border-radius:10px;text-align:center;border:1px solid var(--glass-border);transition:0.3s;}
+    .card:hover{transform:translateY(-5px);border-color:var(--primary);}
     .card i{font-size:2rem;color:var(--primary);margin-bottom:0.5rem;}
     .card h3{margin-bottom:0.5rem;}
-    .pdf-card{background:var(--card-bg);padding:1rem;border-radius:10px;border:1px solid var(--glass-border);display:flex;flex-direction:column;align-items:center;gap:0.5rem;}
-    .pdf-card:hover{border-color:var(--primary);transform:translateY(-3px);transition:0.3s;}
+    .card button{background:var(--primary);border:none;color:#fff;padding:0.5rem 1rem;margin-top:0.5rem;border-radius:5px;cursor:pointer;transition:0.3s;}
+    .card button:hover{background:#2980b9;}
+    .pdf-card{background:var(--card-bg);padding:1rem;border-radius:10px;border:1px solid var(--glass-border);display:flex;flex-direction:column;align-items:center;gap:0.5rem;transition:0.3s;}
+    .pdf-card:hover{border-color:var(--primary);transform:translateY(-3px);}
     .pdf-actions{display:flex;gap:0.5rem;}
     .pdf-actions button{background:var(--primary);border:none;color:#fff;padding:0.5rem;cursor:pointer;border-radius:5px;transition:0.3s;}
     .pdf-actions button:hover{background:#2980b9;}
     .back-btn{background:var(--primary);border:none;color:#fff;padding:0.5rem 1rem;margin-bottom:1rem;border-radius:5px;cursor:pointer;transition:0.3s;}
     .back-btn:hover{background:#2980b9;}
+    .contact-form{max-width:500px;margin:0 auto;background:var(--card-bg);padding:2rem;border-radius:10px;border:1px solid var(--glass-border);}
+    .form-group{margin-bottom:1rem;}
+    .form-group label{display:block;margin-bottom:0.5rem;}
+    .form-group input,.form-group textarea{width:100%;padding:0.5rem;border-radius:5px;border:1px solid var(--glass-border);background:rgba(0,0,0,0.5);color:var(--text);}
+    .form-group textarea{height:150px;resize:vertical;}
+    .submit-btn{background:var(--primary);border:none;color:#fff;padding:0.75rem 1.5rem;border-radius:5px;cursor:pointer;transition:0.3s;width:100%;}
+    .submit-btn:hover{background:#2980b9;}
+    .hero{text-align:center;padding:3rem 1rem;background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80');background-size:cover;background-position:center;border-radius:10px;margin-bottom:2rem;}
+    .hero h2{font-size:2.5rem;margin-bottom:1rem;}
+    .hero p{font-size:1.2rem;max-width:600px;margin:0 auto 1.5rem;}
+    .hero-btn{background:var(--primary);border:none;color:#fff;padding:0.75rem 1.5rem;border-radius:5px;cursor:pointer;transition:0.3s;font-size:1.1rem;}
+    .hero-btn:hover{background:#2980b9;}
+    .loading{display:none;text-align:center;padding:1rem;}
+    .spinner{border:4px solid rgba(255,255,255,0.3);border-radius:50%;border-top:4px solid var(--primary);width:40px;height:40px;animation:spin 1s linear infinite;margin:0 auto 1rem;}
+    @keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+    .toast{position:fixed;bottom:20px;right:20px;background:var(--primary);color:#fff;padding:1rem;border-radius:5px;box-shadow:0 4px 12px rgba(0,0,0,0.3);z-index:1000;transform:translateY(100px);opacity:0;transition:0.3s;}
+    .toast.show{transform:translateY(0);opacity:1;}
+    .toast.error{background:var(--secondary);}
 </style>
 </head>
 <body>
@@ -45,28 +66,45 @@
 
 <!-- Navigation -->
 <div class="nav">
-    <button onclick="showPage('home')">Home</button>
-    <button onclick="showPage('pdf')">PDF Resources</button>
-    <button onclick="showPage('contact')">Contact Us</button>
+    <button id="home-btn" class="active" onclick="showPage('home')">Home</button>
+    <button id="pdf-btn" onclick="showPage('pdf')">PDF Resources</button>
+    <button id="contact-btn" onclick="showPage('contact')">Contact Us</button>
 </div>
 
 <div class="container">
     <!-- Home Page -->
     <div id="home-page">
-        <h2>Welcome to ZIMSEC Society</h2>
-        <p>Access educational resources and WhatsApp channels.</p>
+        <div class="hero">
+            <h2>Welcome to ZIMSEC Society</h2>
+            <p>Your premier destination for ZIMSEC educational resources, past papers, and academic support.</p>
+            <button class="hero-btn" onclick="showPage('pdf')">Explore Resources</button>
+        </div>
+        
+        <h2 style="text-align:center;margin-bottom:2rem;">Our Services</h2>
         <div class="grid">
             <div class="card">
                 <i class="fab fa-whatsapp"></i>
                 <h3>Project Helpers</h3>
-                <p>Join our WhatsApp channel for project help</p>
-                <button onclick="window.open('https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p','_blank')">Join</button>
+                <p>Join our WhatsApp channel for project help and guidance from experienced educators.</p>
+                <button onclick="window.open('https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p','_blank')">Join Channel</button>
             </div>
             <div class="card">
                 <i class="fab fa-whatsapp"></i>
                 <h3>Zimsec Past Papers</h3>
-                <p>Join our WhatsApp channel for past papers</p>
-                <button onclick="window.open('https://chat.whatsapp.com/GEy7HyEdS2zq5gfo3JU3f4','_blank')">Join</button>
+                <p>Access a comprehensive collection of past papers and marking schemes.</p>
+                <button onclick="window.open('https://chat.whatsapp.com/GEy7HyEdS2zq5gfo3JU3f4','_blank')">Join Channel</button>
+            </div>
+            <div class="card">
+                <i class="fas fa-book"></i>
+                <h3>Study Guides</h3>
+                <p>Download subject-specific study guides and revision materials.</p>
+                <button onclick="showPage('pdf')">Browse Guides</button>
+            </div>
+            <div class="card">
+                <i class="fas fa-users"></i>
+                <h3>Community Support</h3>
+                <p>Connect with fellow students and educators for academic support.</p>
+                <button onclick="showPage('contact')">Get in Touch</button>
             </div>
         </div>
     </div>
@@ -74,21 +112,37 @@
     <!-- PDF Resources Page -->
     <div id="pdf-page" style="display:none;">
         <h2>PDF Resources</h2>
+        <p style="text-align:center;margin-bottom:2rem;">Select a subject to access study materials and past papers</p>
         <div class="grid">
             <div class="card" onclick="openSubject('english')">
                 <i class="fas fa-book"></i>
                 <h3>English</h3>
-                <p>Click to see English PDFs</p>
+                <p>Language and Literature resources</p>
             </div>
             <div class="card" onclick="openSubject('math')">
                 <i class="fas fa-calculator"></i>
                 <h3>Mathematics</h3>
-                <p>Click to see Mathematics PDFs</p>
+                <p>Formulas, exercises, and past papers</p>
             </div>
             <div class="card" onclick="openSubject('science')">
                 <i class="fas fa-flask"></i>
                 <h3>Science</h3>
-                <p>Click to see Science PDFs</p>
+                <p>Biology, Chemistry, and Physics resources</p>
+            </div>
+            <div class="card" onclick="openSubject('commerce')">
+                <i class="fas fa-chart-line"></i>
+                <h3>Commerce</h3>
+                <p>Business studies and economics</p>
+            </div>
+            <div class="card" onclick="openSubject('history')">
+                <i class="fas fa-landmark"></i>
+                <h3>History</h3>
+                <p>Historical events and analysis</p>
+            </div>
+            <div class="card" onclick="openSubject('geography')">
+                <i class="fas fa-globe-africa"></i>
+                <h3>Geography</h3>
+                <p>Maps, climate, and environmental studies</p>
             </div>
         </div>
     </div>
@@ -96,7 +150,34 @@
     <!-- Contact Page -->
     <div id="contact-page" style="display:none;">
         <h2>Contact Us</h2>
-        <p>WhatsApp us at <a href="https://wa.me/263772123456" target="_blank">+263 772 123 456</a></p>
+        <p style="text-align:center;margin-bottom:2rem;">Get in touch with us for any inquiries or support</p>
+        
+        <div class="contact-form">
+            <div class="form-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" placeholder="Enter your name">
+            </div>
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject</label>
+                <input type="text" id="subject" placeholder="Enter subject">
+            </div>
+            <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea id="message" placeholder="Enter your message"></textarea>
+            </div>
+            <button class="submit-btn" onclick="submitContactForm()">Send Message</button>
+        </div>
+        
+        <div style="text-align:center;margin-top:2rem;">
+            <p>Or contact us directly via WhatsApp:</p>
+            <button class="hero-btn" onclick="window.open('https://wa.me/263772123456','_blank')">
+                <i class="fab fa-whatsapp"></i> WhatsApp: +263 772 123 456
+            </button>
+        </div>
     </div>
 
     <!-- English Page -->
@@ -104,17 +185,41 @@
         <button class="back-btn" onclick="goBack('pdf')">← Back to Subjects</button>
         <h2>English PDFs</h2>
         <div class="grid">
-            <!-- 10 empty boxes -->
-            <div class="pdf-card"><p>PDF 1</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 2</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 3</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 4</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 5</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 6</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 7</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 8</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 9</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 10</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card">
+                <p>English Language O-Level Guide</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/English-Language-1122-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/English-Language-1122-Specimen-Paper-2020.pdf', 'English-Language-Guide.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>English Literature Past Paper 2022</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/English-Literature-1124-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/English-Literature-1124-Specimen-Paper-2020.pdf', 'English-Literature-2022.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Comprehensive Grammar Guide</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/English-Language-1122-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/English-Language-1122-Specimen-Paper-2020.pdf', 'Grammar-Guide.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Essay Writing Techniques</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/English-Language-1122-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/English-Language-1122-Specimen-Paper-2020.pdf', 'Essay-Writing.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Poetry Analysis Guide</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/English-Literature-1124-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/English-Literature-1124-Specimen-Paper-2020.pdf', 'Poetry-Analysis.pdf')">Download</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -123,17 +228,41 @@
         <button class="back-btn" onclick="goBack('pdf')">← Back to Subjects</button>
         <h2>Mathematics PDFs</h2>
         <div class="grid">
-            <!-- 10 empty boxes -->
-            <div class="pdf-card"><p>PDF 1</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 2</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 3</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 4</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 5</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 6</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 7</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 8</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 9</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 10</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card">
+                <p>Mathematics O-Level Past Paper 2022</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Mathematics-4004-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Mathematics-4004-Specimen-Paper-2020.pdf', 'Mathematics-2022.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Algebra Study Guide</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Mathematics-4004-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Mathematics-4004-Specimen-Paper-2020.pdf', 'Algebra-Guide.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Geometry Workbook</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Mathematics-4004-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Mathematics-4004-Specimen-Paper-2020.pdf', 'Geometry-Workbook.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Statistics & Probability</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Mathematics-4004-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Mathematics-4004-Specimen-Paper-2020.pdf', 'Statistics-Probability.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Calculus Introduction</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Mathematics-4004-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Mathematics-4004-Specimen-Paper-2020.pdf', 'Calculus-Introduction.pdf')">Download</button>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -142,33 +271,150 @@
         <button class="back-btn" onclick="goBack('pdf')">← Back to Subjects</button>
         <h2>Science PDFs</h2>
         <div class="grid">
-            <!-- 10 empty boxes -->
-            <div class="pdf-card"><p>PDF 1</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 2</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 3</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 4</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 5</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 6</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 7</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 8</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 9</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
-            <div class="pdf-card"><p>PDF 10</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card">
+                <p>Biology O-Level Past Paper 2022</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Biology-5004-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Biology-5004-Specimen-Paper-2020.pdf', 'Biology-2022.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Chemistry Practical Guide</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Chemistry-5070-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Chemistry-5070-Specimen-Paper-2020.pdf', 'Chemistry-Practical.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Physics Formula Sheet</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Physics-5054-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Physics-5054-Specimen-Paper-2020.pdf', 'Physics-Formulas.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Integrated Science Workbook</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Integrated-Science-5008-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Integrated-Science-5008-Specimen-Paper-2020.pdf', 'Integrated-Science.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Human Anatomy Guide</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Biology-5004-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Biology-5004-Specimen-Paper-2020.pdf', 'Human-Anatomy.pdf')">Download</button>
+                </div>
+            </div>
         </div>
     </div>
 
+    <!-- Additional Subject Pages -->
+    <div id="commerce-page" style="display:none;">
+        <button class="back-btn" onclick="goBack('pdf')">← Back to Subjects</button>
+        <h2>Commerce PDFs</h2>
+        <div class="grid">
+            <div class="pdf-card">
+                <p>Commerce O-Level Past Paper 2022</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Commerce-7104-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Commerce-7104-Specimen-Paper-2020.pdf', 'Commerce-2022.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Business Studies Guide</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Commerce-7104-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Commerce-7104-Specimen-Paper-2020.pdf', 'Business-Studies.pdf')">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="history-page" style="display:none;">
+        <button class="back-btn" onclick="goBack('pdf')">← Back to Subjects</button>
+        <h2>History PDFs</h2>
+        <div class="grid">
+            <div class="pdf-card">
+                <p>History O-Level Past Paper 2022</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/History-2246-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/History-2246-Specimen-Paper-2020.pdf', 'History-2022.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Zimbabwe History Timeline</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/History-2246-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/History-2246-Specimen-Paper-2020.pdf', 'Zimbabwe-History.pdf')">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="geography-page" style="display:none;">
+        <button class="back-btn" onclick="goBack('pdf')">← Back to Subjects</button>
+        <h2>Geography PDFs</h2>
+        <div class="grid">
+            <div class="pdf-card">
+                <p>Geography O-Level Past Paper 2022</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Geography-2230-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Geography-2230-Specimen-Paper-2020.pdf', 'Geography-2022.pdf')">Download</button>
+                </div>
+            </div>
+            <div class="pdf-card">
+                <p>Map Reading Guide</p>
+                <div class="pdf-actions">
+                    <button onclick="viewPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Geography-2230-Specimen-Paper-2020.pdf')">View</button>
+                    <button onclick="downloadPDF('https://www.zimsec.co.zw/wp-content/uploads/2020/11/Geography-2230-Specimen-Paper-2020.pdf', 'Map-Reading.pdf')">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div class="loading" id="loading">
+        <div class="spinner"></div>
+        <p>Processing your request...</p>
+    </div>
 </div>
 
+<!-- Toast Notification -->
+<div class="toast" id="toast"></div>
+
 <script>
+// Page navigation functions
 function showPage(page){
+    // Hide all pages
     document.getElementById('home-page').style.display='none';
     document.getElementById('pdf-page').style.display='none';
     document.getElementById('contact-page').style.display='none';
     document.getElementById('english-page').style.display='none';
     document.getElementById('math-page').style.display='none';
     document.getElementById('science-page').style.display='none';
-    if(page==='home') document.getElementById('home-page').style.display='block';
-    if(page==='pdf') document.getElementById('pdf-page').style.display='block';
-    if(page==='contact') document.getElementById('contact-page').style.display='block';
+    document.getElementById('commerce-page').style.display='none';
+    document.getElementById('history-page').style.display='none';
+    document.getElementById('geography-page').style.display='none';
+    
+    // Remove active class from all nav buttons
+    document.getElementById('home-btn').classList.remove('active');
+    document.getElementById('pdf-btn').classList.remove('active');
+    document.getElementById('contact-btn').classList.remove('active');
+    
+    // Show selected page and set active nav button
+    if(page==='home') {
+        document.getElementById('home-page').style.display='block';
+        document.getElementById('home-btn').classList.add('active');
+    }
+    if(page==='pdf') {
+        document.getElementById('pdf-page').style.display='block';
+        document.getElementById('pdf-btn').classList.add('active');
+    }
+    if(page==='contact') {
+        document.getElementById('contact-page').style.display='block';
+        document.getElementById('contact-btn').classList.add('active');
+    }
 }
 
 function openSubject(subject){
@@ -176,14 +422,100 @@ function openSubject(subject){
     if(subject==='english') document.getElementById('english-page').style.display='block';
     if(subject==='math') document.getElementById('math-page').style.display='block';
     if(subject==='science') document.getElementById('science-page').style.display='block';
+    if(subject==='commerce') document.getElementById('commerce-page').style.display='block';
+    if(subject==='history') document.getElementById('history-page').style.display='block';
+    if(subject==='geography') document.getElementById('geography-page').style.display='block';
 }
 
 function goBack(page){
     showPage(page);
 }
 
-function viewPDF(link){if(link) window.open(link,'_blank'); else alert('No PDF link yet');}
-function downloadPDF(link){if(link){let a=document.createElement('a');a.href=link;a.download=link.split('/').pop();a.click();}else alert('No PDF link yet');}
+// PDF functions
+function viewPDF(link){
+    if(link) {
+        showLoading();
+        setTimeout(() => {
+            hideLoading();
+            window.open(link,'_blank');
+        }, 1000);
+    } else {
+        showToast('No PDF link available', 'error');
+    }
+}
+
+function downloadPDF(link, filename){
+    if(link) {
+        showLoading();
+        setTimeout(() => {
+            hideLoading();
+            let a = document.createElement('a');
+            a.href = link;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            showToast('Download started');
+        }, 1000);
+    } else {
+        showToast('No PDF link available', 'error');
+    }
+}
+
+// Contact form function
+function submitContactForm(){
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const subject = document.getElementById('subject').value;
+    const message = document.getElementById('message').value;
+    
+    if(!name || !email || !subject || !message) {
+        showToast('Please fill in all fields', 'error');
+        return;
+    }
+    
+    showLoading();
+    
+    // Simulate form submission
+    setTimeout(() => {
+        hideLoading();
+        document.getElementById('name').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('subject').value = '';
+        document.getElementById('message').value = '';
+        showToast('Message sent successfully! We will get back to you soon.');
+    }, 2000);
+}
+
+// UI helper functions
+function showLoading() {
+    document.getElementById('loading').style.display = 'block';
+}
+
+function hideLoading() {
+    document.getElementById('loading').style.display = 'none';
+}
+
+function showToast(message, type = '') {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = 'toast';
+    
+    if(type === 'error') {
+        toast.classList.add('error');
+    }
+    
+    toast.classList.add('show');
+    
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
+}
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+    showPage('home');
+});
 </script>
 
 </body>
