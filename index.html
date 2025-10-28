@@ -1,4 +1,4 @@
-   <!DOCTYPE html>
+    <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,72 +6,74 @@
 <title>ZIMSEC Past Papers</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-  * {margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI', sans-serif;}
-  body {background:linear-gradient(135deg,#0f1b3a,#1a3a6d); color:#fff; min-height:100vh;}
-  body::before {
-    content:''; position:fixed; top:0; left:0; width:100%; height:100%;
-    background-image:url('https://images.unsplash.com/photo-1581093588401-9a13c0f6576d?auto=format&fit=crop&w=2070&q=80');
-    background-size:cover; background-position:center; filter:blur(5px); z-index:-1;
-  }
-  .container{max-width:1200px; margin:0 auto; padding:20px; position:relative; z-index:1;}
-  header{display:flex; justify-content:space-between; align-items:center; padding:20px 0; border-bottom:1px solid rgba(255,255,255,0.2);}
-  .logo h1{font-size:1.8rem; background:linear-gradient(to right,#4da8ff,#a6d8ff); -webkit-background-clip:text; color:transparent;}
-  nav a{color:#c2d9ff; text-decoration:none; margin-left:20px; font-weight:500;}
-  nav a:hover{color:#4da8ff;}
-  .subjects{display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:30px; padding:50px 0;}
-  .subject-card{background:rgba(255,255,255,0.05); padding:30px; border-radius:15px; text-align:center; transition:all 0.3s ease; backdrop-filter:blur(10px); cursor:pointer; border:1px solid rgba(255,255,255,0.1);}
-  .subject-card:hover{transform:translateY(-5px); background:rgba(255,255,255,0.08);}
-  .subject-card i{font-size:3rem; color:#4da8ff; margin-bottom:15px;}
-  .subject-card h3{color:#a6d8ff; font-size:1.5rem;}
-  .pdf-list{display:grid; grid-template-columns:1fr; gap:20px; padding:50px 0;}
-  .pdf-card{background:rgba(255,255,255,0.05); padding:20px; border-radius:15px; display:flex; justify-content:space-between; align-items:center; transition:all 0.3s ease; backdrop-filter:blur(10px); border:1px solid rgba(255,255,255,0.1);}
-  .pdf-card:hover{background:rgba(255,255,255,0.08);}
-  .pdf-title{color:#c2d9ff; font-weight:500;}
-  .pdf-buttons a{margin-left:10px; padding:10px 20px; border-radius:50px; text-decoration:none; font-weight:bold; transition:all 0.3s ease; border:1px solid rgba(255,255,255,0.2);}
-  .pdf-buttons a.download{background:#4da8ff; color:#fff;}
-  .pdf-buttons a.view{background:#2a75d1; color:#fff;}
-  .pdf-buttons a:hover{opacity:0.8;}
-  .back-button{display:inline-block; margin-bottom:20px; background:#25D366; color:white; padding:10px 25px; border-radius:50px; text-decoration:none; font-weight:bold;}
-  footer{text-align:center; padding:30px 0; color:#c2d9ff;}
-  @media(max-width:768px){.subjects{grid-template-columns:1fr;}}
+  *{margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',sans-serif;}
+  body{background:#f5f5f5; color:#333;}
+  header{background:#232f3e; padding:15px 30px; display:flex; align-items:center; justify-content:space-between; color:white;}
+  header h1{font-size:1.5rem;}
+  .search-bar input{padding:8px 12px; border-radius:5px; border:none; width:250px;}
+  nav a{color:white; margin-left:20px; text-decoration:none;}
+  nav a:hover{text-decoration:underline;}
+  .container{max-width:1200px; margin:20px auto; padding:0 20px;}
+  h2{margin:20px 0; color:#111;}
+  .pdf-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px;}
+  .pdf-card{background:white; border-radius:10px; overflow:hidden; box-shadow:0 2px 5px rgba(0,0,0,0.2); display:flex; flex-direction:column; justify-content:space-between; transition:all 0.3s ease;}
+  .pdf-card:hover{box-shadow:0 5px 15px rgba(0,0,0,0.3); transform:translateY(-5px);}
+  .pdf-card img{width:100%; height:200px; object-fit:cover;}
+  .pdf-content{padding:15px;}
+  .pdf-title{font-weight:bold; margin-bottom:10px; color:#111;}
+  .pdf-buttons{display:flex; gap:10px;}
+  .pdf-buttons a{flex:1; padding:10px; text-align:center; border-radius:5px; text-decoration:none; font-weight:bold; transition:all 0.3s ease;}
+  .pdf-buttons a.download{background:#ffd814; color:#111;}
+  .pdf-buttons a.view{background:#febd69; color:#111;}
+  .pdf-buttons a:hover{opacity:0.85;}
+  .back-button{display:inline-block; margin-bottom:15px; text-decoration:none; color:#232f3e; font-weight:bold;}
+  footer{background:#232f3e; color:white; text-align:center; padding:15px 0; margin-top:40px;}
+  @media(max-width:768px){.pdf-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-<div class="container">
 <header>
-  <div class="logo"><h1>ZIMSEC Past Papers</h1></div>
+  <h1>ZIMSEC Past Papers</h1>
+  <div class="search-bar"><input type="text" placeholder="Search PDFs..."></div>
   <nav>
-    <a href="#">Home</a>
-    <a href="#subjects">Subjects</a>
+    <a href="index.html">Home</a>
+    <a href="mathematics.html">Mathematics</a>
+    <a href="english.html">English</a>
   </nav>
 </header>
 
-<section class="subjects" id="subjects">
-  <div class="subject-card" onclick="location.href='mathematics.html'">
-    <i class="fas fa-square-root-alt"></i>
-    <h3>Mathematics</h3>
+<div class="container">
+<a href="index.html" class="back-button"><i class="fas fa-arrow-left"></i> Back to Subjects</a>
+<h2>Mathematics Papers</h2>
+<div class="pdf-grid">
+  <div class="pdf-card">
+    <img src="https://via.placeholder.com/300x200.png?text=Math+Paper+1" alt="Math Paper 1">
+    <div class="pdf-content">
+      <div class="pdf-title">Mathematics Paper 1 - 2023</div>
+      <div class="pdf-buttons">
+        <a href="pdfs/mathematics/math_paper1_2023.pdf" class="download" download>Download</a>
+        <a href="pdfs/mathematics/math_paper1_2023.pdf" class="view" target="_blank">View</a>
+      </div>
+    </div>
   </div>
-  <div class="subject-card" onclick="location.href='english.html'">
-    <i class="fas fa-book"></i>
-    <h3>English</h3>
+
+  <div class="pdf-card">
+    <img src="https://via.placeholder.com/300x200.png?text=Math+Paper+2" alt="Math Paper 2">
+    <div class="pdf-content">
+      <div class="pdf-title">Mathematics Paper 2 - 2023</div>
+      <div class="pdf-buttons">
+        <a href="pdfs/mathematics/math_paper2_2023.pdf" class="download" download>Download</a>
+        <a href="pdfs/mathematics/math_paper2_2023.pdf" class="view" target="_blank">View</a>
+      </div>
+    </div>
   </div>
-  <div class="subject-card" onclick="location.href='science.html'">
-    <i class="fas fa-flask"></i>
-    <h3>Science</h3>
-  </div>
-  <div class="subject-card" onclick="location.href='history.html'">
-    <i class="fas fa-landmark"></i>
-    <h3>History</h3>
-  </div>
-  <div class="subject-card" onclick="location.href='geography.html'">
-    <i class="fas fa-globe-africa"></i>
-    <h3>Geography</h3>
-  </div>
-</section>
+
+  <!-- Add more PDF cards -->
+</div>
+</div>
 
 <footer>
-  <p>&copy; 2025 ZIMSEC Past Papers. All Rights Reserved.</p>
+  &copy; 2025 ZIMSEC Past Papers. All Rights Reserved.
 </footer>
-</div>
 </body>
 </html>
