@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -6,371 +6,184 @@
 <title>ZIMSEC SOCIETY 🇿🇼</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <style>
-    *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;}
+    *{margin:0;padding:0;box-sizing:border-box;font-family:sans-serif;}
     :root{
-        --primary:#25D366;
-        --primary-blue:#3498db;
-        --dark:#0f0f0f;
-        --card:rgba(26,26,26,0.8);
-        --text:#ffffff;
-        --text-light:#b3b3b3;
-        --green:#319241;
-        --yellow:#FFD200;
-        --red:#DE2010;
+        --primary:#3498db;
+        --card-bg:rgba(0,0,0,0.5);
+        --text:#fff;
+        --text-light:#ccc;
         --glass:rgba(255,255,255,0.1);
         --glass-border:rgba(255,255,255,0.2);
     }
-    body{
-        background:linear-gradient(135deg,var(--dark) 0%,#1a1a2e 50%,#16213e 100%);
-        color:var(--text);
-        min-height:100vh;
-        backdrop-filter:blur(10px);
-    }
-    .header{
-        background: rgba(15,15,15,0.8);
-        padding:2rem 0;
-        text-align:center;
-        border-bottom:3px solid var(--primary-blue);
-        backdrop-filter:blur(20px);
-        -webkit-backdrop-filter:blur(20px);
-    }
-    .logo{
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        gap:1rem;
-        margin-bottom:1rem;
-    }
-    .logo i{
-        font-size:3rem;
-        color:var(--primary-blue);
-    }
-    .logo h1{
-        font-size:3rem;
-        font-weight:800;
-        color: var(--primary-blue);
-    }
-    .counter{
-        background:rgba(52,152,219,0.2);
-        display:inline-block;
-        padding:0.5rem 1.5rem;
-        border-radius:25px;
-        border:1px solid var(--primary-blue);
-        font-weight:600;
-        backdrop-filter:blur(10px);
-    }
-    .nav{
-        display:flex;
-        justify-content:center;
-        gap:2rem;
-        padding:1.5rem;
-        background: rgba(0,0,0,0.4);
-        backdrop-filter:blur(15px);
-    }
-    .nav-btn{
-        background:transparent;
-        border:2px solid var(--primary-blue);
-        color:var(--text);
-        padding:0.8rem 2rem;
-        border-radius:8px;
-        cursor:pointer;
-        font-weight:600;
-        transition:all 0.3s ease;
-        backdrop-filter:blur(10px);
-    }
-    .nav-btn:hover{
-        background: var(--primary-blue);
-        transform:translateY(-2px);
-        box-shadow:0 10px 20px rgba(52,152,219,0.3);
-    }
-    .container{
-        max-width:1200px;
-        margin:0 auto;
-        padding:3rem 2rem;
-    }
-    .hero{text-align:center;margin-bottom:3rem;}
-    .hero h2{font-size:2.5rem;margin-bottom:1rem;color:var(--primary-blue);}
-    .hero p{font-size:1.2rem;color:var(--text-light);max-width:600px;margin:0 auto;}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(350px,1fr));gap:2rem;margin-bottom:4rem;}
-    .card{background:var(--card);border-radius:15px;overflow:hidden;transition:all 0.3s ease;border:1px solid var(--glass-border);backdrop-filter:blur(20px);}
-    .card:hover{transform:translateY(-10px);box-shadow:0 20px 40px rgba(0,0,0,0.5);border-color:var(--primary-blue);}
-    .card-img{height:200px;background:linear-gradient(45deg,rgba(42,42,42,0.8),rgba(58,58,58,0.8));position:relative;overflow:hidden;}
-    .card-img img{width:100%;height:100%;object-fit:cover;}
-    .card-content{padding:1.5rem;}
-    .card-title{font-size:1.4rem;margin-bottom:1rem;display:flex;align-items:center;gap:0.5rem;}
-    .card-title i{color:var(--primary-blue);}
-    .card-desc{color:var(--text-light);margin-bottom:1.5rem;line-height:1.6;}
-    .card-meta{display:flex;justify-content:space-between;color:var(--text-light);font-size:0.9rem;}
-    .join-btn{background:var(--primary-blue);color:white;border:none;padding:0.8rem 1.5rem;border-radius:8px;font-weight:600;cursor:pointer;width:100%;transition:all 0.3s ease;backdrop-filter:blur(10px);}
-    .join-btn:hover{background:#2980b9;transform:translateY(-2px);box-shadow:0 10px 20px rgba(52,152,219,0.3);}
-    .pdf-page,.subject-page,.contact-page{display:none;}
-    .back-btn{background:rgba(52,152,219,0.2);border:1px solid var(--primary-blue);color:var(--text);padding:0.8rem 1.5rem;border-radius:8px;cursor:pointer;margin-bottom:2rem;transition:all 0.3s ease;backdrop-filter:blur(10px);}
-    .back-btn:hover{background:var(--primary-blue);transform:translateY(-2px);}
-    .filter-section{background:var(--glass);padding:2rem;border-radius:15px;margin-bottom:2rem;border:1px solid var(--glass-border);backdrop-filter:blur(20px);}
-    .filter-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1rem;}
-    .filter-btn{background:rgba(52,152,219,0.2);border:1px solid var(--primary-blue);color:var(--text);padding:1rem;border-radius:8px;cursor:pointer;transition:all 0.3s ease;backdrop-filter:blur(10px);}
-    .filter-btn.active{background:var(--primary-blue);}
-    .filter-btn:hover{background:var(--primary-blue);transform:translateY(-2px);}
-    .subject-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;margin-bottom:3rem;}
-    .subject-card{background:var(--card);border-radius:12px;padding:2rem;border:1px solid var(--glass-border);transition:all 0.3s ease;backdrop-filter:blur(20px);text-align:center;cursor:pointer;}
-    .subject-card:hover{transform:translateY(-5px);border-color:var(--primary-blue);box-shadow:0 15px 30px rgba(0,0,0,0.4);}
-    .subject-icon{font-size:3rem;color:var(--primary-blue);margin-bottom:1rem;}
-    .subject-name{font-size:1.3rem;font-weight:600;margin-bottom:0.5rem;}
-    .subject-count{color:var(--text-light);font-size:0.9rem;}
-    .pdf-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-bottom:3rem;}
-    .pdf-card{background:var(--card);border-radius:12px;padding:1.5rem;border:1px solid var(--glass-border);transition:all 0.3s ease;backdrop-filter:blur(20px);}
-    .pdf-card:hover{transform:translateY(-5px);border-color:var(--primary-blue);box-shadow:0 15px 30px rgba(0,0,0,0.4);}
-    .pdf-icon{font-size:2.5rem;color:var(--primary-blue);text-align:center;margin-bottom:1rem;}
-    .pdf-name{text-align:center;color:var(--text);height:40px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;margin-bottom:1rem;}
-    .pdf-actions{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.5rem;}
-    .pdf-btn{background:rgba(52,152,219,0.2);border:1px solid var(--primary-blue);color:var(--text);padding:0.6rem;border-radius:6px;cursor:pointer;transition:all 0.3s ease;font-size:0.8rem;text-align:center;}
-    .pdf-btn:hover{background:var(--primary-blue);transform:translateY(-2px);}
-    .contact-page{text-align:center;}
-    .contact-header{margin-bottom:3rem;}
-    .contact-header h2{font-size:2.5rem;color:var(--primary-blue);margin-bottom:1rem;}
-    .phone-section{background:rgba(52,152,219,0.2);padding:2rem;border-radius:15px;border:2px solid var(--primary-blue);margin:2rem 0;backdrop-filter:blur(20px);}
-    .phone-number{font-size:2rem;font-weight:700;color:var(--primary-blue);text-decoration:none;display:block;margin:1rem 0;}
-    .packages{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:2rem;margin:3rem 0;}
-    .package{background:var(--card);padding:2rem;border-radius:15px;border:2px solid;transition:all 0.3s ease;cursor:pointer;backdrop-filter:blur(20px);}
-    .package:hover{transform:translateY(-5px);}
-    .package.basic{border-color:var(--green);}
-    .package.standard{border-color:var(--yellow);}
-    .package.premium{border-color:var(--red);}
-    .package h3{font-size:1.5rem;margin-bottom:1rem;}
-    .package.basic h3{color:var(--green);}
-    .package.standard h3{color:var(--yellow);}
-    .package.premium h3{color:var(--red);}
-    .price{font-size:2.5rem;font-weight:800;margin:1rem 0;}
-    .package.basic .price{color:var(--green);}
-    .package.standard .price{color:var(--yellow);}
-    .package.premium .price{color:var(--red);}
-    .features{list-style:none;text-align:left;margin:1.5rem 0;}
-    .features li{margin:0.8rem 0;color:var(--text-light);}
-    .features li:before{content:"✓ ";color:var(--primary-blue);font-weight:bold;}
-    .call-btn{background:var(--primary-blue);color:white;border:none;padding:1rem 2rem;border-radius:8px;font-size:1.1rem;font-weight:600;cursor:pointer;text-decoration:none;display:inline-block;margin-top:1rem;transition:all 0.3s ease;}
-    .call-btn:hover{background:#2980b9;transform:translateY(-2px);box-shadow:0 10px 20px rgba(52,152,219,0.3);}
-    .footer{text-align:center;padding:2rem;border-top:1px solid var(--glass-border);margin-top:3rem;background:rgba(15,15,15,0.8);backdrop-filter:blur(20px);}
-    .powered{font-size:1.1rem;color:var(--text-light);margin-bottom:1rem;}
-    .powered span{color:var(--primary-blue);font-weight:700;}
-    @media(max-width:1200px){.pdf-grid-4{grid-template-columns:repeat(3,1fr);}}
-    @media(max-width:768px){.logo h1{font-size:2rem}.hero h2{font-size:2rem}.grid{grid-template-columns:1fr}.packages{grid-template-columns:1fr}.subject-grid{grid-template-columns:1fr 1fr}.pdf-grid-4{grid-template-columns:1fr 1fr}.nav{flex-direction:column;gap:1rem}.filter-grid{grid-template-columns:1fr 1fr;}}
-    @media(max-width:480px){.pdf-grid-4{grid-template-columns:1fr}.subject-grid{grid-template-columns:1fr;}}
+    body{background:#0f0f0f;color:var(--text);min-height:100vh;}
+    .header{background:rgba(15,15,15,0.8);padding:1rem;text-align:center;border-bottom:3px solid var(--primary);}
+    .header h1{color:var(--primary);}
+    .nav{display:flex;justify-content:center;gap:1rem;background:rgba(0,0,0,0.5);padding:1rem;}
+    .nav button{background:transparent;border:2px solid var(--primary);padding:0.5rem 1rem;color:var(--text);cursor:pointer;border-radius:5px;transition:0.3s;}
+    .nav button:hover{background:var(--primary);}
+    .container{max-width:1200px;margin:2rem auto;padding:1rem;}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:1.5rem;}
+    .card{background:var(--card-bg);padding:1rem;border-radius:10px;text-align:center;border:1px solid var(--glass-border);}
+    .card:hover{transform:translateY(-5px);transition:0.3s;border-color:var(--primary);}
+    .card i{font-size:2rem;color:var(--primary);margin-bottom:0.5rem;}
+    .card h3{margin-bottom:0.5rem;}
+    .pdf-card{background:var(--card-bg);padding:1rem;border-radius:10px;border:1px solid var(--glass-border);display:flex;flex-direction:column;align-items:center;gap:0.5rem;}
+    .pdf-card:hover{border-color:var(--primary);transform:translateY(-3px);transition:0.3s;}
+    .pdf-actions{display:flex;gap:0.5rem;}
+    .pdf-actions button{background:var(--primary);border:none;color:#fff;padding:0.5rem;cursor:pointer;border-radius:5px;transition:0.3s;}
+    .pdf-actions button:hover{background:#2980b9;}
+    .back-btn{background:var(--primary);border:none;color:#fff;padding:0.5rem 1rem;margin-bottom:1rem;border-radius:5px;cursor:pointer;transition:0.3s;}
+    .back-btn:hover{background:#2980b9;}
 </style>
 </head>
 <body>
 
 <!-- Header -->
-<header class="header">
-    <div class="logo">
-        <i class="fab fa-whatsapp"></i>
-        <h1>ZIMSECSOCIETY</h1>
-    </div>
-    <div class="counter">
-        <i class="fas fa-users"></i> Visitors: <span id="count">0</span>
-    </div>
-</header>
+<div class="header">
+    <h1>ZIMSEC SOCIETY</h1>
+</div>
 
 <!-- Navigation -->
-<nav class="nav">
-    <button class="nav-btn" onclick="showPage('home')">Home</button>
-    <button class="nav-btn" onclick="showPage('pdf')">PDF Resources</button>
-    <button class="nav-btn" onclick="showPage('contact')">Contact Us</button>
-</nav>
+<div class="nav">
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('pdf')">PDF Resources</button>
+    <button onclick="showPage('contact')">Contact Us</button>
+</div>
 
-<!-- Container -->
 <div class="container">
     <!-- Home Page -->
     <div id="home-page">
-        <div class="hero">
-            <h2>WhatsApp Channels</h2>
-            <p>Access exclusive educational content and resources for ZIMSEC students</p>
-        </div>
+        <h2>Welcome to ZIMSEC Society</h2>
+        <p>Access educational resources and WhatsApp channels.</p>
         <div class="grid">
             <div class="card">
-                <div class="card-img"><img src="2.jpg" alt="Project Helpers"></div>
-                <div class="card-content">
-                    <h3 class="card-title"><i class="fab fa-whatsapp"></i> Project Helpers 2025</h3>
-                    <p class="card-desc">Get assistance with projects, assignments and academic work from experts and fellow students.</p>
-                    <div class="card-meta"><span><i class="fas fa-users"></i> 12.5K subscribers</span><span>Education</span></div>
-                    <button class="join-btn" onclick="window.open('https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p','_blank')">Join Channel</button>
-                </div>
+                <i class="fab fa-whatsapp"></i>
+                <h3>Project Helpers</h3>
+                <p>Join our WhatsApp channel for project help</p>
+                <button onclick="window.open('https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p','_blank')">Join</button>
             </div>
             <div class="card">
-                <div class="card-img"><img src="1.jpg" alt="Zimsec Papers"></div>
-                <div class="card-content">
-                    <h3 class="card-title"><i class="fab fa-whatsapp"></i> Zimsec Past Papers</h3>
-                    <p class="card-desc">Access comprehensive collection of ZIMSEC past papers from Form 1 to Form 6 across all subjects.</p>
-                    <div class="card-meta"><span><i class="fas fa-users"></i> 17K subscribers</span><span>Education</span></div>
-                    <button class="join-btn" onclick="window.open('https://chat.whatsapp.com/GEy7HyEdS2zq5gfo3JU3f4','_blank')">Join Channel</button>
-                </div>
+                <i class="fab fa-whatsapp"></i>
+                <h3>Zimsec Past Papers</h3>
+                <p>Join our WhatsApp channel for past papers</p>
+                <button onclick="window.open('https://chat.whatsapp.com/GEy7HyEdS2zq5gfo3JU3f4','_blank')">Join</button>
             </div>
         </div>
     </div>
 
-    <!-- PDF Page -->
-    <div id="pdf-page" class="pdf-page">
-        <div class="hero">
-            <h2>PDF Resources</h2>
-            <p>All ZIMSEC past papers and study guides organized by subject and grade.</p>
-        </div>
-        <div class="subject-grid">
-            <div class="subject-card" onclick="openSubject('english')">
-                <div class="subject-icon"><i class="fas fa-book"></i></div>
-                <div class="subject-name">English</div>
-                <div class="subject-count">30+ PDFs</div>
+    <!-- PDF Resources Page -->
+    <div id="pdf-page" style="display:none;">
+        <h2>PDF Resources</h2>
+        <div class="grid">
+            <div class="card" onclick="openSubject('english')">
+                <i class="fas fa-book"></i>
+                <h3>English</h3>
+                <p>Click to see English PDFs</p>
             </div>
-            <div class="subject-card" onclick="openSubject('mathematics')">
-                <div class="subject-icon"><i class="fas fa-calculator"></i></div>
-                <div class="subject-name">Mathematics</div>
-                <div class="subject-count">28+ PDFs</div>
+            <div class="card" onclick="openSubject('math')">
+                <i class="fas fa-calculator"></i>
+                <h3>Mathematics</h3>
+                <p>Click to see Mathematics PDFs</p>
             </div>
-            <div class="subject-card" onclick="openSubject('science')">
-                <div class="subject-icon"><i class="fas fa-flask"></i></div>
-                <div class="subject-name">Science</div>
-                <div class="subject-count">25+ PDFs</div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Subject Pages -->
-    <!-- English Page -->
-    <div id="english-page" class="subject-page">
-        <button class="back-btn" onclick="goBackToSubjects()">← Back to Subjects</button>
-        <div class="hero"><h2>English PDFs</h2></div>
-        <div class="pdf-grid-4">
-            <div class="pdf-card">
-                <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
-                <div class="pdf-name">English Grammar Basics</div>
-                <div class="pdf-actions">
-                    <button class="pdf-btn" onclick="previewPdf('pdfs/english/grammar.pdf')"><i class="fas fa-eye"></i></button>
-                    <button class="pdf-btn" onclick="downloadPdf('pdfs/english/grammar.pdf')"><i class="fas fa-download"></i></button>
-                    <button class="pdf-btn" onclick="shareOnWhatsApp('pdfs/english/grammar.pdf')"><i class="fab fa-whatsapp"></i></button>
-                </div>
-            </div>
-            <div class="pdf-card">
-                <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
-                <div class="pdf-name">English Essay Writing</div>
-                <div class="pdf-actions">
-                    <button class="pdf-btn" onclick="previewPdf('pdfs/english/essay.pdf')"><i class="fas fa-eye"></i></button>
-                    <button class="pdf-btn" onclick="downloadPdf('pdfs/english/essay.pdf')"><i class="fas fa-download"></i></button>
-                    <button class="pdf-btn" onclick="shareOnWhatsApp('pdfs/english/essay.pdf')"><i class="fab fa-whatsapp"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Mathematics Page -->
-    <div id="mathematics-page" class="subject-page">
-        <button class="back-btn" onclick="goBackToSubjects()">← Back to Subjects</button>
-        <div class="hero"><h2>Mathematics PDFs</h2></div>
-        <div class="pdf-grid-4">
-            <div class="pdf-card">
-                <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
-                <div class="pdf-name">Algebra Basics</div>
-                <div class="pdf-actions">
-                    <button class="pdf-btn" onclick="previewPdf('pdfs/math/algebra.pdf')"><i class="fas fa-eye"></i></button>
-                    <button class="pdf-btn" onclick="downloadPdf('pdfs/math/algebra.pdf')"><i class="fas fa-download"></i></button>
-                    <button class="pdf-btn" onclick="shareOnWhatsApp('pdfs/math/algebra.pdf')"><i class="fab fa-whatsapp"></i></button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Science Page -->
-    <div id="science-page" class="subject-page">
-        <button class="back-btn" onclick="goBackToSubjects()">← Back to Subjects</button>
-        <div class="hero"><h2>Science PDFs</h2></div>
-        <div class="pdf-grid-4">
-            <div class="pdf-card">
-                <div class="pdf-icon"><i class="fas fa-file-pdf"></i></div>
-                <div class="pdf-name">Physics Past Papers</div>
-                <div class="pdf-actions">
-                    <button class="pdf-btn" onclick="previewPdf('pdfs/science/physics.pdf')"><i class="fas fa-eye"></i></button>
-                    <button class="pdf-btn" onclick="downloadPdf('pdfs/science/physics.pdf')"><i class="fas fa-download"></i></button>
-                    <button class="pdf-btn" onclick="shareOnWhatsApp('pdfs/science/physics.pdf')"><i class="fab fa-whatsapp"></i></button>
-                </div>
+            <div class="card" onclick="openSubject('science')">
+                <i class="fas fa-flask"></i>
+                <h3>Science</h3>
+                <p>Click to see Science PDFs</p>
             </div>
         </div>
     </div>
 
     <!-- Contact Page -->
-    <div id="contact-page" class="contact-page">
-        <div class="contact-header">
-            <h2>Contact & Services</h2>
-            <p>Reach out to join our premium packages or for inquiries.</p>
-        </div>
-        <div class="phone-section">
-            <h3>WhatsApp Contact</h3>
-            <a href="https://wa.me/263772123456" class="phone-number">+263 772 123 456</a>
-        </div>
-        <div class="packages">
-            <div class="package basic">
-                <h3>Basic</h3>
-                <p class="price">$5</p>
-                <ul class="features">
-                    <li>Access to 50 PDFs</li>
-                    <li>Community support</li>
-                </ul>
-                <a href="https://wa.me/263772123456" class="call-btn">Call Now</a>
-            </div>
-            <div class="package standard">
-                <h3>Standard</h3>
-                <p class="price">$15</p>
-                <ul class="features">
-                    <li>Access to 200 PDFs</li>
-                    <li>Priority support</li>
-                </ul>
-                <a href="https://wa.me/263772123456" class="call-btn">Call Now</a>
-            </div>
-            <div class="package premium">
-                <h3>Premium</h3>
-                <p class="price">$30</p>
-                <ul class="features">
-                    <li>Unlimited PDFs</li>
-                    <li>Direct support</li>
-                </ul>
-                <a href="https://wa.me/263772123456" class="call-btn">Call Now</a>
-            </div>
+    <div id="contact-page" style="display:none;">
+        <h2>Contact Us</h2>
+        <p>WhatsApp us at <a href="https://wa.me/263772123456" target="_blank">+263 772 123 456</a></p>
+    </div>
+
+    <!-- English Page -->
+    <div id="english-page" style="display:none;">
+        <button class="back-btn" onclick="goBack('pdf')">← Back to Subjects</button>
+        <h2>English PDFs</h2>
+        <div class="grid">
+            <!-- 10 empty boxes -->
+            <div class="pdf-card"><p>PDF 1</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 2</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 3</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 4</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 5</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 6</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 7</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 8</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 9</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 10</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
         </div>
     </div>
+
+    <!-- Mathematics Page -->
+    <div id="math-page" style="display:none;">
+        <button class="back-btn" onclick="goBack('pdf')">← Back to Subjects</button>
+        <h2>Mathematics PDFs</h2>
+        <div class="grid">
+            <!-- 10 empty boxes -->
+            <div class="pdf-card"><p>PDF 1</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 2</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 3</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 4</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 5</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 6</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 7</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 8</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 9</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 10</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+        </div>
+    </div>
+
+    <!-- Science Page -->
+    <div id="science-page" style="display:none;">
+        <button class="back-btn" onclick="goBack('pdf')">← Back to Subjects</button>
+        <h2>Science PDFs</h2>
+        <div class="grid">
+            <!-- 10 empty boxes -->
+            <div class="pdf-card"><p>PDF 1</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 2</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 3</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 4</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 5</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 6</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 7</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 8</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 9</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+            <div class="pdf-card"><p>PDF 10</p><div class="pdf-actions"><button onclick="viewPDF('')">View</button><button onclick="downloadPDF('')">Download</button></div></div>
+        </div>
+    </div>
+
 </div>
 
-<!-- Footer -->
-<footer class="footer">
-    <div class="powered">Powered by <span>ZIMSEC SOCIETY</span> 🇿🇼</div>
-</footer>
-
 <script>
-    // Visitor count simulation
-    let count=0;setInterval(()=>{document.getElementById('count').innerText=count++;},1000);
+function showPage(page){
+    document.getElementById('home-page').style.display='none';
+    document.getElementById('pdf-page').style.display='none';
+    document.getElementById('contact-page').style.display='none';
+    document.getElementById('english-page').style.display='none';
+    document.getElementById('math-page').style.display='none';
+    document.getElementById('science-page').style.display='none';
+    if(page==='home') document.getElementById('home-page').style.display='block';
+    if(page==='pdf') document.getElementById('pdf-page').style.display='block';
+    if(page==='contact') document.getElementById('contact-page').style.display='block';
+}
 
-    function showPage(page){
-        document.getElementById('home-page').style.display='none';
-        document.getElementById('pdf-page').style.display='none';
-        document.getElementById('contact-page').style.display='none';
-        document.querySelectorAll('.subject-page').forEach(p=>p.style.display='none');
+function openSubject(subject){
+    showPage('none');
+    if(subject==='english') document.getElementById('english-page').style.display='block';
+    if(subject==='math') document.getElementById('math-page').style.display='block';
+    if(subject==='science') document.getElementById('science-page').style.display='block';
+}
 
-        if(page==='home') document.getElementById('home-page').style.display='block';
-        if(page==='pdf') document.getElementById('pdf-page').style.display='block';
-        if(page==='contact') document.getElementById('contact-page').style.display='block';
-    }
+function goBack(page){
+    showPage(page);
+}
 
-    function openSubject(subject){
-        document.getElementById('home-page').style.display='none';
-        document.getElementById('pdf-page').style.display='none';
-        document.getElementById('contact-page').style.display='none';
-        document.querySelectorAll('.subject-page').forEach(p=>p.style.display='none');
-        document.getElementById(subject+'-page').style.display='block';
-    }
-
-    function goBackToSubjects(){
-        document.querySelectorAll('.subject-page').forEach(p=>p.style.display='none');
-        document.getElementById('pdf-page').style.display='block';
-    }
-
-    function previewPdf(file){window.open(file,'_blank');}
-    function downloadPdf(file){let a=document.createElement('a');a.href=file;a.download=file.split('/').pop();a.click();}
-    function shareOnWhatsApp(file){window.open(`https://wa.me/?text=${encodeURIComponent('Check this PDF: '+file)}`,'_blank');}
+function viewPDF(link){if(link) window.open(link,'_blank'); else alert('No PDF link yet');}
+function downloadPDF(link){if(link){let a=document.createElement('a');a.href=link;a.download=link.split('/').pop();a.click();}else alert('No PDF link yet');}
 </script>
 
 </body>
