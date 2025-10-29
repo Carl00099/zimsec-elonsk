@@ -1,10 +1,11 @@
- <!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZIMSEC Library - Contact Us</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -12,15 +13,15 @@
         <a href="index.html" class="logo">ZIIMSEC LIBRARY</a>
         <nav class="nav-links">
             <a href="index.html">HOME</a>
-            <a href="books.html">BOOKS</a>
+            <a href="books.html">RESOURCES</a>
+            <a href="order-projects.html">PROJECTS/ORDER</a>
             <a href="contact.html" class="active">CONTACT US</a>
-            <a href="purchase.html">PURCHASE LIST</a>
         </nav>
     </header>
 
     <main class="container">
         <h2>📞 Get In Touch</h2>
-        <p style="color: #cccccc;">We are here to assist with any questions regarding resources, technical issues, or partnership opportunities.</p>
+        <p style="color: #cccccc;">We are here to assist with any questions regarding resources, technical issues, or web development inquiries.</p>
 
         <form action="mailto:your_email@example.com" method="POST" enctype="text/plain" style="margin-top: 40px;">
             <div class="form-group">
@@ -28,20 +29,29 @@
                 <input type="text" id="name" name="name" required>
             </div>
             <div class="form-group">
-                <label for="email">Your Email (LED Hiver focus):</label>
+                <label for="email">Your Email (LED Hover focus):</label>
                 <input type="email" id="email" name="email" required>
             </div>
             <div class="form-group">
                 <label for="message">Your Message:</label>
                 <textarea id="message" name="message" rows="5" required></textarea>
             </div>
-            <button type="submit" class="cta-button">Send Message</button>
+            <button type="submit" class="cta-button"><i class="fas fa-paper-plane"></i> Send Message</button>
         </form>
 
-        <h3 style="margin-top: 60px;">Web Development Enquiries</h3>
-        <p style="color: #cccccc;">Interested in a Black & Green themed website like this for your own project? Let us know!</p>
-        <a href="mailto:your_dev_email@example.com" class="cta-button">Start Your Project</a>
+        <h3 style="margin-top: 60px;"><i class="fab fa-whatsapp" style="color: #32CD32;"></i> Instant Support via WhatsApp</h3>
+        <p style="color: #cccccc;">For the fastest response, reach out to us directly:</p>
+        <a href="https://wa.me/263771123456?text=Hi!%20I%20need%20assistance%20with%20a%20past%20paper%20download." target="_blank" class="cta-button" style="background-color: #25D366; color: white;">
+            Chat for Resource Help
+        </a>
+        <a href="https://wa.me/263771123456?text=I'm%20interested%20in%20a%20website%20like%20this%21%20Let's%20discuss%20a%20project." target="_blank" class="cta-button" style="margin-left: 20px;">
+            Chat for Web Dev Inquiry
+        </a>
     </main>
+
+    <a href="https://wa.me/263771123456?text=Hi!%20I%20need%20assistance%20with%20a%20past%20paper%20download." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <footer class="footer">
         <p>&copy; 2024 ZIIMSEC Library. All Rights Reserved.</p>
