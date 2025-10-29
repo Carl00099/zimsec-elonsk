@@ -1,1 +1,60 @@
  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZIMSEC Library - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">ZIIMSEC LIBRARY</a>
+        <nav class="nav-links">
+            <a href="index.html" class="active">HOME</a>
+            <a href="books.html">BOOKS</a>
+            <a href="contact.html">CONTACT US</a>
+            <a href="purchase.html">PURCHASE LIST</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <section class="hero-section" style="background-image: url('placeholder-study-group.jpg');">
+            <h1>Your Digital ZIMSEC Study Hub</h1>
+            <p style="color: #cccccc; margin-bottom: 30px;">
+                Find Past Papers, Syllabi, and Notes Instantly.
+            </p>
+            <div class="search-container">
+                <form action="search-results.html" method="GET">
+                    <input type="text" name="query" placeholder="Search by Subject, Level, or Year (e.g., 'O-Level Maths 2023')" required>
+                    <button type="submit" class="cta-button" style="display:none;">Search</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="resource-grid">
+            <div class="resource-card">
+                <h3>O-Level Papers</h3>
+                <p class="details">Access all Ordinary Level Examination Papers.</p>
+                <a href="books.html#Olevel" class="cta-button download-button">Go to O-Level</a>
+            </div>
+            <div class="resource-card">
+                <h3>A-Level Notes</h3>
+                <p class="details">Premium, created Revision Notes and Summaries.</p>
+                <a href="books.html#Anote" class="cta-button download-button">View A-Level Notes</a>
+            </div>
+            <div class="resource-card">
+                <h3>Official Syllabi</h3>
+                <p class="details">Download the latest ZIMSEC Curricula PDFs.</p>
+                <a href="books.html#syllabi" class="cta-button download-button">Get Syllabi</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 ZIIMSEC Library. All Rights Reserved. | Designed with Black & Green LED Theme.</p>
+    </footer>
+
+</body>
+</html>
