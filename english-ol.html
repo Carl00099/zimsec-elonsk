@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* CSS for the table (copied from subject-template.html) */
+        /* CSS for the table (copied from style.css for self-containment) */
         .resource-table {
             width: 100%;
             border-collapse: collapse;
@@ -27,17 +27,23 @@
         .resource-table tr:hover {
             background-color: #111111; /* Slight hover effect on row */
         }
-        .action-button-group a {
+        .action-button-group a, .action-button-group button {
             margin-right: 10px;
             font-size: 0.9em;
             padding: 8px 15px;
             display: inline-block;
+            cursor: pointer; /* Ensure button looks clickable */
+            border: none;
+            text-decoration: none;
+            border-radius: 5px; /* Use the global cta-button styling */
+            font-family: inherit;
+            font-weight: bold;
         }
-        .view-pdf { background-color: #1E8449; } /* Darker green */
+        .view-pdf { background-color: #1E8449; color: #fff;} 
         .view-pdf:hover { background-color: #32CD32; }
-        .download-pdf { background-color: #32CD32; } /* Accent green */
+        .download-pdf { background-color: #32CD32; color: #0a0a0a;} 
         .download-pdf:hover { background-color: #39db39; }
-        .whatsapp-link { background-color: #075E54; } /* WhatsApp Green */
+        .whatsapp-link { background-color: #075E54; color: #fff;}
         .whatsapp-link:hover { background-color: #128C7E; }
     </style>
 </head>
@@ -72,15 +78,18 @@
                     <td>English Language Paper 1 - Composition</td>
                     <td>2024 P1</td>
                     <td class="action-button-group">
-                        <a href="Maths 2025 paper 1.pdf" 
-                           target="_blank" 
-                           class="cta-button view-pdf">
+                        <button onclick="viewPdf('https://yourwebsite.com/pdfs/english_ol_nov24_p1.pdf')" 
+                                class="cta-button view-pdf">
                             <i class="fas fa-eye"></i> View PDF
-                        </a>
-                        <a href="https://yourwebsite.com/pdfs/english_ol_nov24_p1.pdf" download class="cta-button download-pdf">
+                        </button>
+                        <a href="https://yourwebsite.com/pdfs/english_ol_nov24_p1.pdf" 
+                           download 
+                           class="cta-button download-pdf">
                             <i class="fas fa-download"></i> Download
                         </a>
-                        <a href="https://wa.me/263771123456?text=I%20need%20the%20O-Level%20English%20Nov%202024%20Paper%201%20PDF." target="_blank" class="cta-button whatsapp-link">
+                        <a href="https://wa.me/263771123456?text=I%20need%20the%20O-Level%20English%20Nov%202024%20Paper%201%20PDF." 
+                           target="_blank" 
+                           class="cta-button whatsapp-link">
                             <i class="fab fa-whatsapp"></i> WhatsApp Me
                         </a>
                     </td>
@@ -90,15 +99,18 @@
                     <td>English Language Paper 2 - Comprehension</td>
                     <td>2023 P2</td>
                     <td class="action-button-group">
-                        <a href="https://docs.google.com/viewer?url=https://yourwebsite.com/pdfs/english_ol_nov23_p2.pdf" 
-                           target="_blank" 
-                           class="cta-button view-pdf">
+                        <button onclick="viewPdf('https://yourwebsite.com/pdfs/english_ol_nov23_p2.pdf')" 
+                                class="cta-button view-pdf">
                             <i class="fas fa-eye"></i> View PDF
-                        </a>
-                        <a href="https://yourwebsite.com/pdfs/english_ol_nov23_p2.pdf" download class="cta-button download-pdf">
+                        </button>
+                        <a href="https://yourwebsite.com/pdfs/english_ol_nov23_p2.pdf" 
+                           download 
+                           class="cta-button download-pdf">
                             <i class="fas fa-download"></i> Download
                         </a>
-                        <a href="https://wa.me/263771123456?text=I%20need%20the%20O-Level%20English%20Nov%202023%20Paper%202%20PDF." target="_blank" class="cta-button whatsapp-link">
+                        <a href="https://wa.me/263771123456?text=I%20need%20the%20O-Level%20English%20Nov%202023%20Paper%202%20PDF." 
+                           target="_blank" 
+                           class="cta-button whatsapp-link">
                             <i class="fab fa-whatsapp"></i> WhatsApp Me
                         </a>
                     </td>
@@ -108,15 +120,18 @@
                     <td>English Language Marking Scheme</td>
                     <td>2023 MS</td>
                     <td class="action-button-group">
-                        <a href="https://docs.google.com/viewer?url=https://yourwebsite.com/pdfs/english_ol_nov23_ms.pdf" 
-                           target="_blank" 
-                           class="cta-button view-pdf">
+                        <button onclick="viewPdf('https://yourwebsite.com/pdfs/english_ol_nov23_ms.pdf')" 
+                                class="cta-button view-pdf">
                             <i class="fas fa-eye"></i> View PDF
-                        </a>
-                        <a href="https://yourwebsite.com/pdfs/english_ol_nov23_ms.pdf" download class="cta-button download-pdf">
+                        </button>
+                        <a href="https://yourwebsite.com/pdfs/english_ol_nov23_ms.pdf" 
+                           download 
+                           class="cta-button download-pdf">
                             <i class="fas fa-download"></i> Download
                         </a>
-                        <a href="https://wa.me/263771123456?text=I%20need%20the%20O-Level%20English%20Nov%202023%20Marking%20Scheme%20PDF." target="_blank" class="cta-button whatsapp-link">
+                        <a href="https://wa.me/263771123456?text=I%20need%20the%20O-Level%20English%20Nov%202023%20Marking%20Scheme%20PDF." 
+                           target="_blank" 
+                           class="cta-button whatsapp-link">
                             <i class="fab fa-whatsapp"></i> WhatsApp Me
                         </a>
                     </td>
@@ -138,5 +153,19 @@
         <p>&copy; 2024 ZIIMSEC Library. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        /**
+         * Uses the Google Docs Viewer to force a PDF to open in a new, 
+         * mobile-friendly web viewer, preventing automatic downloads.
+         * * @param {string} pdfUrl - The direct, public URL of the PDF file.
+         */
+        function viewPdf(pdfUrl) {
+            // Construct the mobile-friendly viewer URL
+            const viewerUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(pdfUrl);
+            
+            // Open the viewer in a new window/tab
+            window.open(viewerUrl, '_blank');
+        }
+    </script>
 </body>
 </html>
