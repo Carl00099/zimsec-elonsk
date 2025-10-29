@@ -1,47 +1,51 @@
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZIMSEC SOCIETY 🇿🇼 - Contact</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="styles.css">
+    <title>ZIMSEC Library - Contact Us</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Header -->
-    <div class="header">
-        <h1>ZIMSEC SOCIETY 🇿🇼</h1>
-        <p>Your Premier Destination for ZIMSEC Educational Resources</p>
-    </div>
 
-    <!-- Navigation -->
-    <div class="nav">
-        <a href="index.html"><i class="fas fa-home"></i> Home</a>
-        <a href="resources.html"><i class="fas fa-book"></i> Resources</a>
-        <a href="pastpapers.html"><i class="fas fa-file-pdf"></i> Past Papers</a>
-        <a href="subjects.html"><i class="fas fa-graduation-cap"></i> Subjects</a>
-        <a href="contact.html" class="active"><i class="fas fa-envelope"></i> Contact Us</a>
-    </div>
+    <header class="navbar">
+        <a href="index.html" class="logo">ZIIMSEC LIBRARY</a>
+        <nav class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="books.html">BOOKS</a>
+            <a href="contact.html" class="active">CONTACT US</a>
+            <a href="purchase.html">PURCHASE LIST</a>
+        </nav>
+    </header>
 
-    <div class="container">
-        <h2 class="page-title">Contact Us</h2>
-        <p style="text-align: center; margin-bottom: 2rem;">Get in touch with us for any inquiries or support</p>
-        
-        <div style="max-width: 600px; margin: 0 auto; background: var(--card-bg); padding: 2rem; border-radius: 15px; border: 1px solid var(--glass-border);">
-            <div style="text-align: center; margin-bottom: 2rem;">
-                <h3 style="color: var(--primary); margin-bottom: 1rem;">Contact Information</h3>
-                <p><i class="fas fa-phone"></i> +263 *********</p>
-                <p><i class="fas fa-envelope"></i>sirmalone@gmail.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Harare, Zimbabwe</p>
+    <main class="container">
+        <h2>📞 Get In Touch</h2>
+        <p style="color: #cccccc;">We are here to assist with any questions regarding resources, technical issues, or partnership opportunities.</p>
+
+        <form action="mailto:your_email@example.com" method="POST" enctype="text/plain" style="margin-top: 40px;">
+            <div class="form-group">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
             </div>
-            
-            <div style="text-align: center;">
-                <h3 style="color: var(--primary); margin-bottom: 1rem;">WhatsApp Channels</h3>
-                <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p" target="_blank" class="card" style="display: block; margin-bottom: 1rem; text-decoration: none;">
-                    <i class="fab fa-whatsapp"></i> Project Helpers Channel
-                </a>
-                <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p" target="_blank" class="card" style="display: block; text-decoration: none;">
-                    <i class="fab fa-whatsapp"></i> Past Papers Channel
-                </a>
+            <div class="form-group">
+                <label for="email">Your Email (LED Hiver focus):</label>
+                <input type="email" id="email" name="email" required>
             </div>
+            <div class="form-group">
+                <label for="message">Your Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="cta-button">Send Message</button>
+        </form>
+
+        <h3 style="margin-top: 60px;">Web Development Enquiries</h3>
+        <p style="color: #cccccc;">Interested in a Black & Green themed website like this for your own project? Let us know!</p>
+        <a href="mailto:your_dev_email@example.com" class="cta-button">Start Your Project</a>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2024 ZIIMSEC Library. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
