@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZIMSEC Library - All Resources</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
 
@@ -12,81 +13,98 @@
         <a href="index.html" class="logo">ZIIMSEC LIBRARY</a>
         <nav class="nav-links">
             <a href="index.html">HOME</a>
-            <a href="books.html" class="active">BOOKS</a>
+            <a href="books.html" class="active">RESOURCES</a>
+            <a href="order-projects.html">PROJECTS/ORDER</a>
             <a href="contact.html">CONTACT US</a>
-            <a href="purchase.html">PURCHASE LIST</a>
         </nav>
     </header>
 
     <main class="container">
         <h2>📚 ZIMSEC Digital Library Catalog</h2>
-        <p style="color: #cccccc;">Use the filters (imagine a sidebar here) to quickly find the resource you need.</p>
+        <p style="color: #cccccc;">Use the search bar below to instantly filter all 120+ resources.</p>
         
-        <div style="margin-top: 30px;">
-            <a id="Olevel"></a>
-            <h3>O-Level Past Examination Papers</h3>
-            <div class="resource-grid">
-                
-                <div class="resource-card">
-                    <h3 class="resource-title">Mathematics (4024) - Nov 2023 P1</h3>
-                    <p class="details">Year: 2023 | Paper: 1 | Level: O-Level</p>
-                    <a href="books/5070_s23_ms_42.pdf" 
-                       download 
-                       class="cta-button download-button">
-                        Download PDF
-                    </a>
-                </div>
-
-                <div class="resource-card">
-                    <h3 class="resource-title">Combined Science - June 2022 P3</h3>
-                    <p class="details">Year: 2022 | Paper: 3 | Level: O-Level</p>
-                    <a href="YOUR_PDF_FILE_PATH/science_o_jun22_p3.pdf" 
-                       download 
-                       class="cta-button download-button">
-                        Download PDF
-                    </a>
-                </div>
-
-                <div class="resource-card">
-                    <h3 class="resource-title">History (2167) - Nov 2021 P2 MS</h3>
-                    <p class="details">Year: 2021 | Marking Scheme | Level: O-Level</p>
-                    <a href="YOUR_PDF_FILE_PATH/history_o_nov21_p2_ms.pdf" 
-                       download 
-                       class="cta-button download-button">
-                        Download PDF
-                    </a>
-                </div>
-
-            </div>
+        <div class="search-container">
+            <form onsubmit="return false;">
+                <input type="text" id="resourceSearch" placeholder="Filter by Subject, Level, or Year">
+            </form>
         </div>
 
-        <div style="margin-top: 50px;">
-            <a id="Anote"></a>
-            <h3>A-Level Study Notes (Premium Content Placeholder)</h3>
-            <p style="color: #cccccc;">These are exclusive notes created by our team. Download is free, but consider supporting us!</p>
+        <div id="resourceList">
+            <a id="Olevel_Science"></a>
+            <h3 style="margin-top: 50px;">🧪 O-LEVEL: Sciences & Mathematics</h3>
+            <p style="color: #888888; margin-bottom: 20px;">[Green LED Indicator Placeholder] Resources for Math, Physics, Chemistry, and Combined Science.</p>
             <div class="resource-grid">
-                
-                <div class="resource-card">
-                    <h3 class="resource-title">Chemistry Notes - Organic Summary</h3>
-                    <p class="details">Topic: Organic Chemistry | Level: A-Level</p>
-                    <a href="YOUR_PDF_FILE_PATH/chem_a_notes_organic.pdf" 
-                       download 
-                       class="cta-button download-button">
-                        Download PDF
-                    </a>
-                </div>
+                <div class="resource-card"><h3 class="resource-title">Mathematics (4034) - Nov 2024 P1</h3><p class="details">Year: 2024 | Paper: 1 | Level: O-Level | Subject: MATHS</p><a href="YOUR_PDF_FILE_PATH/maths_o_nov24_p1.pdf" download class="cta-button download-button"><i class="fas fa-download"></i> Download PDF</a></div>
+                <div class="resource-card"><h3 class="resource-title">Combined Science (4003) - June 2023 MS</h3><p class="details">Year: 2023 | Marking Scheme | Level: O-Level | Subject: SCIENCE</p><a href="YOUR_PDF_FILE_PATH/combined_sci_o_jun23_ms.pdf" download class="cta-button download-button"><i class="fas fa-download"></i> Download PDF</a></div>
+                <div class="resource-card"><h3 class="resource-title">Physics (5002) - Nov 2023 P1</h3><p class="details">Year: 2023 | Paper: 1 | Level: O-Level | Subject: PHYSICS</p><a href="YOUR_PDF_FILE_PATH/physics_o_nov23_p1.pdf" download class="cta-button download-button"><i class="fas fa-download"></i> Download PDF</a></div>
+                <div class="resource-card"><h3 class="resource-title">Chemistry (5003) - June 2024 P2</h3><p class="details">Year: 2024 | Paper: 2 | Level: O-Level | Subject: CHEMISTRY</p><a href="YOUR_PDF_FILE_PATH/chemistry_o_jun24_p2.pdf" download class="cta-button download-button"><i class="fas fa-download"></i> Download PDF</a></div>
+                <div class="resource-card"><h3 class="resource-title">Biology (5092) - Nov 2022 P3 MS</h3><p class="details">Year: 2022 | Marking Scheme | Level: O-Level | Subject: BIOLOGY</p><a href="YOUR_PDF_FILE_PATH/biology_o_nov22_p3_ms.pdf" download class="cta-button download-button"><i class="fas fa-download"></i> Download PDF</a></div>
+                <div class="resource-card"><h3 class="resource-title">O-Level Math Placeholder 20</h3><p class="details">Year: [YYYY] | Paper: [P1/P2/MS] | Level: O-Level | Subject: GENERIC SCIENCE</p><a href="YOUR_PDF_FILE_PATH/generic_o_sci_20.pdf" download class="cta-button download-button"><i class="fas fa-download"></i> Download PDF</a></div>
             </div>
-        </div>
+            
+            <hr/>
 
-        <div style="text-align: center; margin-top: 50px;">
-            <p style="color: #32CD32; font-weight: bold;">Need a hard copy or custom bundle?</p>
-            <a href="purchase.html" class="cta-button">Visit Our Purchase List</a>
+            <a id="Olevel_Humanities"></a>
+            <h3 style="margin-top: 50px;">🌍 O-LEVEL: Humanities & Languages</h3>
+            <p style="color: #888888; margin-bottom: 20px;">[Green LED Indicator Placeholder] Resources for History, Geography, English, and Shona/Ndebele.</p>
+            <div class="resource-grid">
+                <div class="resource-card"><h3 class="resource-title">History (4121) - Nov 2023 P2</h3><p class="details">Year: 2023 | Paper: 2 | Level: O-Level | Subject: HISTORY</p><a href="YOUR_PDF_FILE_PATH/history_o_nov23_p2.pdf" download class="cta-button download-button"><i class="fas fa-download"></i> Download PDF</a></div>
+                <div class="resource-card"><h3 class="resource-title">English Language (4043) - June 2022 P1</h3><p class="details">Year: 2022 | Paper: 1 | Level: O-Level | Subject: ENGLISH</p><a href="YOUR_PDF_FILE_PATH/english_o_jun22_p1.pdf" download class="cta-button download-button"><i class="fas fa-download"></i> Download PDF</a></div>
+                <div class="resource-card"><h3 class="resource-title">O-Level Language Placeholder 20</h3><p class="details">Year: [YYYY] | Paper: [P1/P2/MS] | Level: O-Level | Subject: GENERIC HUMANITIES</p><a href="YOUR_PDF_FILE_PATH/generic_o_hum_20.pdf" download class="cta-button download-button"><i class="fas fa-download"></i> Download PDF</a></div>
+            </div>
+
+            <hr/>
+
+            <a id="Alevel_Commercials"></a>
+            <h3 style="margin-top: 50px;">📈 A-LEVEL: Commercials & Computing</h3>
+            <p style="color: #888888; margin-bottom: 20px;">[Green LED Indicator Placeholder] Advanced Level resources for Accounting, Business Studies, Economics, and Computer Science.</p>
+            <div class="resource-grid">
+                <div class="resource-card"><h3 class="resource-title">Accounting (6001) - Nov 2024 P3</h3><p class="details">Year: 2024 | Paper: 3 | Level: A-Level | Subject: ACCOUNTING</p><a href="YOUR_PDF_FILE_PATH/accounting_a_nov24_p3.pdf" download class="cta-button download-button"><i class="fas fa-download"></i> Download PDF</a></div>
+                <div class="resource-card"><h3 class="resource-title">Business Studies (9707) - June 2023 P2</h3><p class="details">Year: 2023 | Paper: 2 | Level: A-Level | Subject: BUSINESS STUDIES</p><a href="YOUR_PDF_FILE_PATH/business_a_jun23_p2.pdf" download class="cta-button download-button"><i class="fas fa-download"></i> Download PDF</a></div>
+                <div class="resource-card"><h3 class="resource-title">A-Level Statistics Placeholder 20</h3><p class="details">Year: [YYYY] | Paper: [P1/P2/MS] | Level: A-Level | Subject: GENERIC A-COMM</p><a href="YOUR_PDF_FILE_PATH/generic_a_comm_20.pdf" download class="cta-button download-button"><i class="fas fa-download"></i> Download PDF</a></div>
+            </div>
+            
         </div>
     </main>
+
+    <a href="https://wa.me/263771123456?text=Hi!%20I%20need%20assistance%20with%20a%20past%20paper%20download." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
 
     <footer class="footer">
         <p>&copy; 2024 ZIIMSEC Library. All Rights Reserved.</p>
     </footer>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const searchInput = document.getElementById('resourceSearch');
+            const resourceList = document.getElementById('resourceList');
+            // Get ALL cards across ALL resource-grid divs
+            const cards = resourceList.getElementsByClassName('resource-card');
+
+            // 1. Filter Function
+            searchInput.addEventListener('keyup', function() {
+                const filter = searchInput.value.toUpperCase();
+                
+                for (let i = 0; i < cards.length; i++) {
+                    const cardText = cards[i].textContent || cards[i].innerText;
+                    
+                    if (cardText.toUpperCase().indexOf(filter) > -1) {
+                        cards[i].style.display = "";
+                    } else {
+                        cards[i].style.display = "none";
+                    }
+                }
+            });
+
+            // 2. Initial Query (if coming from index.html)
+            const urlParams = new URLSearchParams(window.location.search);
+            const initialQuery = urlParams.get('query');
+            if (initialQuery) {
+                searchInput.value = initialQuery;
+                searchInput.dispatchEvent(new Event('keyup')); // Trigger the search function
+            }
+        });
+    </script>
 </body>
 </html>
