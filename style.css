@@ -1,0 +1,153 @@
+/* Core Styling: Black & Green LED Theme */
+body {
+    background-color: #0a0a0a; /* Deep Black Background */
+    color: #ffffff; /* White Text */
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* --- Navigation Bar --- */
+.navbar {
+    background-color: #0a000a;
+    padding: 15px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #1E8449; /* Secondary Green subtle border */
+}
+
+.logo {
+    color: #32CD32; /* Accent Green */
+    font-size: 24px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.nav-links a {
+    color: #cccccc; /* Light Grey for links */
+    text-decoration: none;
+    margin-left: 25px;
+    padding: 5px 0;
+    transition: color 0.3s, box-shadow 0.3s;
+}
+
+/* LED Hiver Effect for Navigation */
+.nav-links a:hover,
+.nav-links a.active {
+    color: #32CD32; /* Accent Green on hover/active */
+    box-shadow: 0 1px 0 0 #32CD32; /* Small LED line indicator */
+}
+
+/* --- General Content Structure --- */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: #32CD32; /* Accent Green Headings */
+}
+
+.cta-button {
+    background-color: #32CD32; /* Accent Green Button */
+    color: #0a0a0a;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s, box-shadow 0.3s;
+    border: none;
+}
+
+/* LED Hiver Effect for Buttons */
+.cta-button:hover {
+    background-color: #39db39;
+    box-shadow: 0 0 10px rgba(50, 205, 50, 0.7); /* Subtle Green Glow */
+}
+
+/* --- Homepage Specific --- */
+.hero-section {
+    text-align: center;
+    padding: 80px 20px;
+    background: url('placeholder.jpg') no-repeat center center/cover; /* Placeholder image location */
+    margin-bottom: 40px;
+}
+
+.search-container input[type="text"] {
+    width: 60%;
+    padding: 15px;
+    border: 2px solid #1E8449; /* Darker Green border */
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.search-container input[type="text"]:focus {
+    border-color: #32CD32; /* Accent Green on focus */
+    box-shadow: 0 0 8px #32CD32; /* LED Focus Glow */
+    outline: none;
+}
+
+/* --- Books Page Specific (Resource Cards) --- */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.resource-card {
+    background-color: #1a1a1a;
+    padding: 20px;
+    border-left: 4px solid #1E8449; /* Darker Green accent line */
+    border-radius: 5px;
+    transition: transform 0.2s, box-shadow 0.3s;
+    position: relative;
+}
+
+.resource-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(50, 205, 50, 0.2); /* Lift and Glow Effect */
+}
+
+.download-button {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+
+.details {
+    color: #888888;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* --- Contact Form Styling --- */
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #cccccc;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    background-color: #1a1a1a;
+    border: 1px solid #1E8449;
+    color: #ffffff;
+    border-radius: 3px;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #000000;
+    text-align: center;
+    padding: 20px;
+    color: #888888;
+    border-top: 2px solid #1E8449;
+    margin-top: 50px;
+} 
