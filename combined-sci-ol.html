@@ -1,0 +1,169 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combined Science (O-Level) Papers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">ZIIMSEC LIBRARY</a>
+        <nav class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="resources-main.html" class="active">RESOURCES</a>
+            <a href="order-projects.html">PROJECTS/ORDER</a>
+            <a href="contact.html">CONTACT US</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1><i class="fas fa-flask"></i> O-LEVEL COMBINED SCIENCE (4003)</h1>
+        <p style="color: #888888;">Back to <a href="ol-subjects.html" style="color: #32CD32;">Subject List</a></p>
+
+        <h3 style="margin-top: 30px;">Available Past Papers & Marking Schemes</h3>
+
+        <table class="resource-table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Year & Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Combined Science Paper 1 - Multiple Choice</td>
+                    <td>2024 P1</td>
+                    <td class="action-button-group">
+                        <button onclick="viewPdf('https://yourwebsite.com/pdfs/combined_sci_ol_nov24_p1.pdf')" 
+                                class="cta-button view-pdf">
+                            <i class="fas fa-eye"></i> View PDF
+                        </button>
+                        <button onclick="initiateDownload('https://yourwebsite.com/pdfs/combined_sci_ol_nov24_p1.pdf', 'Combined Science O-Level Nov 2024 P1')" 
+                           class="cta-button download-pdf">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                        <a href="https://whatsapp.com/channel/0029VbAdOQuFi8xTtr39BB1D" 
+                           target="_blank" 
+                           class="cta-button whatsapp-link"
+                           title="Join the ZIMSEC Pastpapers Channel">
+                            <i class="fab fa-whatsapp"></i> Join Channel
+                        </a>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Combined Science Paper 2 - Theory</td>
+                    <td>2023 P2</td>
+                    <td class="action-button-group">
+                        <button onclick="viewPdf('https://yourwebsite.com/pdfs/combined_sci_ol_nov23_p2.pdf')" 
+                                class="cta-button view-pdf">
+                            <i class="fas fa-eye"></i> View PDF
+                        </button>
+                        <button onclick="initiateDownload('https://yourwebsite.com/pdfs/combined_sci_ol_nov23_p2.pdf', 'Combined Science O-Level Nov 2023 P2')" 
+                           class="cta-button download-pdf">
+                            <i class="fas fa-download"></i> Download
+                        </button>
+                        <a href="https://whatsapp.com/channel/0029VbAdOQuFi8xTtr39BB1D" 
+                           target="_blank" 
+                           class="cta-button whatsapp-link"
+                           title="Join the ZIMSEC Pastpapers Channel">
+                            <i class="fab fa-whatsapp"></i> Join Channel
+                        </a>
+                    </td>
+                </tr>
+                
+                </tbody>
+        </table>
+
+        <div id="downloadModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:1000; justify-content:center; align-items:center;">
+            <div style="background:#1a1a1a; padding:40px; border-radius:8px; border:2px solid #32CD32; max-width:400px; text-align:center;">
+                <h3 id="modalTitle" style="color:#32CD32;">Step 1: Preparing Download...</h3>
+                <p id="modalMessage" style="color:#cccccc; margin-bottom: 20px;">Please share the resource link to 3 groups to unlock your download.</p>
+                
+                <div style="width:100%; background:#0a0a0a; border-radius:5px; margin-bottom:20px;">
+                    <div id="progressBar" style="width:0%; height:25px; background-color:#1E8449; border-radius:5px; transition: width 0.3s ease-out;"></div>
+                </div>
+                
+                <a id="finalDownloadLink" style="display:none;" target="_blank" class="cta-button download-pdf">
+                    <i class="fas fa-download"></i> Start Download
+                </a>
+                
+                <button onclick="closeDownloadModal()" class="cta-button view-pdf" style="margin-top: 20px; background-color: #8B0000;">
+                    <i class="fas fa-times-circle"></i> Close
+                </button>
+            </div>
+        </div>
+        
+        <p style="margin-top: 40px; color: #cccccc; font-style: italic;">
+            **REMINDER:** Replace **`https://yourwebsite.com/pdfs/filename.pdf`** with the actual, full URL of your PDF files.
+        </p>
+    </main>
+
+    <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p" class="whatsapp-float" target="_blank" title="HBC HERITAGE BASED PROJECTS Channel">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="footer">
+        <p>&copy; 2024 ZIIMSEC Library. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        // 1. Function for reliable viewing (using Google Viewer)
+        function viewPdf(pdfUrl) {
+            const viewerUrl = 'https://docs.google.com/viewer?url=' + encodeURIComponent(pdfUrl);
+            window.open(viewerUrl, '_blank');
+        }
+
+        // 2. Function for simulated share and download
+        function initiateDownload(pdfUrl, pdfTitle) {
+            const modal = document.getElementById('downloadModal');
+            const progressBar = document.getElementById('progressBar');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalMessage = document.getElementById('modalMessage');
+            const finalLink = document.getElementById('finalDownloadLink');
+            
+            // Show the modal and reset states
+            modal.style.display = 'flex';
+            progressBar.style.width = '0%';
+            finalLink.style.display = 'none';
+            
+            // 1. WhatsApp Share Link (Opens a new tab for sharing)
+            const shareText = encodeURIComponent(`🔥 *ZIMSEC Past Paper Alert!* Get the ${pdfTitle} here: ${pdfUrl}. Join the official ZIMSEC Channel for more: https://whatsapp.com/channel/0029VbAdOQuFi8xTtr39BB1D`);
+            const shareUrl = `https://api.whatsapp.com/send?text=${shareText}`;
+            window.open(shareUrl, '_blank'); // Opens WhatsApp share dialog
+            
+            // 2. Simulate Share Progress (This is not actual tracking)
+            modalTitle.textContent = 'Step 1: Share Link...';
+            modalMessage.innerHTML = 'Please share the link in the new tab to at least **3 groups** to support us.<br>Loading simulated verification...';
+
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                progressBar.style.width = progress + '%';
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    
+                    // 3. Unlock Download
+                    modalTitle.textContent = 'Step 2: Download Unlocked!';
+                    modalMessage.textContent = 'Thank you for sharing! Click below to start your download.';
+                    
+                    // Set the final download link and make it visible
+                    finalLink.setAttribute('href', pdfUrl);
+                    finalLink.setAttribute('download', pdfTitle.replace(/[^a-z0-9]/gi, '_').toLowerCase() + '.pdf'); // Create clean filename
+                    finalLink.style.display = 'inline-block';
+                }
+            }, 300); // Loads to 100% in 3 seconds
+        }
+
+        // 3. Function to close modal
+        function closeDownloadModal() {
+            document.getElementById('downloadModal').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
