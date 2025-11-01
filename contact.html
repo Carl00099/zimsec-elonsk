@@ -1,61 +1,152 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZIMSEC Library - Contact Us</title>
+    <title>Contact Us & Services</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Specific Styles for the Pricing Table (Based on resource-table but custom colors) */
+        .pricing-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+            border-collapse: collapse;
+            border: 2px solid #5CA0F0; /* Blue Border */
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .pricing-table th, .pricing-table td {
+            padding: 18px;
+            text-align: center;
+            border-bottom: 1px solid #24406C;
+        }
+        .pricing-table th {
+            background-color: #1a2a47; /* Card Blue */
+            color: #FF9800; /* Orange Accent */
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .pricing-table td {
+            background-color: #0B1627; /* Darker than body */
+            color: #E0E7FF;
+        }
+        .pricing-table tr:last-child td {
+            border-bottom: none;
+        }
+        .price {
+            font-size: 1.5em;
+            color: #00BCD4; /* Cyan/View Blue */
+            font-weight: bold;
+        }
+        .whatsapp-pay-button {
+            background-color: #4CAF50; /* Standard WhatsApp Green for Payment action */
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+        .whatsapp-pay-button:hover {
+            background-color: #66BB6A;
+        }
+    </style>
 </head>
 <body>
 
     <header class="navbar">
-        <a href="index.html" class="logo">ZIIMSEC LIBRARY</a>
+        <a href="index.html" class="logo">ZIMSEC LIBRARY</a>
         <nav class="nav-links">
             <a href="index.html">HOME</a>
-            <a href="books.html">RESOURCES</a>
+            <a href="resources-main.html">RESOURCES</a>
             <a href="order-projects.html">PROJECTS/ORDER</a>
             <a href="contact.html" class="active">CONTACT US</a>
         </nav>
     </header>
 
     <main class="container">
-        <h2>📞 Get In Touch</h2>
-        <p style="color: #cccccc;">We are here to assist with any questions regarding resources, technical issues, or web development inquiries.</p>
+        
+        <h1 style="text-align: center;"><i class="fas fa-headset"></i> Get In Touch & Order Services</h1>
+        <p style="text-align: center; color: #9BB8D4; margin-bottom: 50px;">
+            Contact us for web design, custom projects, or queries regarding the resource library.
+        </p>
 
-        <form action="mailto:your_email@example.com" method="POST" enctype="text/plain" style="margin-top: 40px;">
-            <div class="form-group">
-                <label for="name">Your Name:</label>
-                <input type="text" id="name" name="name" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Your Email (LED Hover focus):</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Your Message:</label>
-                <textarea id="message" name="message" rows="5" required></textarea>
-            </div>
-            <button type="submit" class="cta-button"><i class="fas fa-paper-plane"></i> Send Message</button>
-        </form>
+        <div style="text-align: center; margin-bottom: 40px;">
+            <h3 style="color: #5CA0F0;">Direct Contact</h3>
+            <p><i class="fas fa-phone-alt"></i> **Call/WhatsApp:** +263 78X XXX XXX</p>
+            <p><i class="fas fa-envelope"></i> **Email:** elonsk.tp@gmail.com</p>
+            <p style="margin-top: 15px;">
+                <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p" target="_blank" class="cta-button">
+                    <i class="fab fa-whatsapp"></i> Chat on Projects Channel
+                </a>
+            </p>
+        </div>
 
-        <h3 style="margin-top: 60px;"><i class="fab fa-whatsapp" style="color: #32CD32;"></i> Instant Support via WhatsApp</h3>
-        <p style="color: #cccccc;">For the fastest response, reach out to us directly:</p>
-        <a href="https://wa.me/263771123456?text=Hi!%20I%20need%20assistance%20with%20a%20past%20paper%20download." target="_blank" class="cta-button" style="background-color: #25D366; color: white;">
-            Chat for Resource Help
-        </a>
-        <a href="https://wa.me/263771123456?text=I'm%20interested%20in%20a%20website%20like%20this%21%20Let's%20discuss%20a%20project." target="_blank" class="cta-button" style="margin-left: 20px;">
-            Chat for Web Dev Inquiry
-        </a>
+        <hr style="border-top: 1px solid #24406C;">
+
+        <h2 style="text-align: center; color: #FF9800; margin-top: 40px;">Web Design & Project Pricing</h2>
+        <p style="text-align: center; color: #E0E7FF;">
+            Want a dedicated resource page like this one for your own project or school? Order our simple, affordable packages!
+        </p>
+
+        <table class="pricing-table">
+            <thead>
+                <tr>
+                    <th>Package Level</th>
+                    <th>Description</th>
+                    <th>Price (USD)</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>**Single Subject Page**</td>
+                    <td>One dedicated page (e.g., Maths O-Level) with your PDF links.</td>
+                    <td class="price">$1.00</td>
+                    <td>
+                        <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p" target="_blank" class="whatsapp-pay-button">
+                            Order & Pay Now
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>**Basic Project Bundle**</td>
+                    <td>Two separate subject/resource pages with custom links.</td>
+                    <td class="price">$2.00</td>
+                    <td>
+                        <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p" target="_blank" class="whatsapp-pay-button">
+                            Order & Pay Now
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>**Full Website Starter**</td>
+                    <td>Four separate pages (e.g., Home, Resources, 2 Subjects).</td>
+                    <td class="price">$4.00</td>
+                    <td>
+                        <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p" target="_blank" class="whatsapp-pay-button">
+                            Order & Pay Now
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <p style="text-align: center; color: #9BB8D4; margin-top: 30px; font-size: 0.9em;">
+            Payment is processed through the Heritage Based Projects WhatsApp Channel. Please specify your chosen package when contacting us.
+        </p>
+
     </main>
 
-    <a href="https://wa.me/263771123456?text=Hi!%20I%20need%20assistance%20with%20a%20past%20paper%20download." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p" class="whatsapp-float" target="_blank" title="HBC HERITAGE BASED PROJECTS Channel">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <footer class="footer">
-        <p>&copy; 2024 ZIIMSEC Library. All Rights Reserved.</p>
+        <p>&copy; 2025 ZIMSEC Library. All Rights Reserved. | Designed by ELONSK TP.</p>
     </footer>
-
 </body>
 </html>
