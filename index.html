@@ -69,10 +69,15 @@
     </footer>
 
     <script>
-        // Function to open the PDF in Google's Viewer
-        function viewPdf(viewerUrl) {
-            // The viewerUrl must be the special Google Viewer URL format
-            window.open(viewerUrl, '_blank');
+    /**
+     * Function to open the PDF using the Google Docs Viewer link.
+     * This relies on the viewerUrl being in the correct format: 
+     * https://docs.google.com/viewer?url=https://drive.google.com/uc?id=[YOUR_FILE_ID]&embedded=true
+     */
+    function viewPdf(viewerUrl) {
+        window.open(viewerUrl, '_blank');
+    }
+</script>
         }
     </script>
 </body>
