@@ -1,245 +1,235 @@
- /* Core Styling: Black & Green LED Theme */
-body {
-    background-color: #0a0a0a; /* Deep Black Background */
-    color: #ffffff; /* White Text */
-    font-family: 'Arial', sans-serif;
+ /*
+ * ZIMSEC Library Website: Primary Stylesheet
+ * Theme: Black & Green LED
+ */
+
+/* General Reset and Base Styles */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-/* --- Navigation Bar --- */
-.navbar {
-    background-color: #000000;
-    padding: 15px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-bottom: 2px solid #1E8449; /* Secondary Green subtle border */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #0a0a0a; /* Deep Black Background */
+    color: #cccccc; /* Light Gray Text */
+    line-height: 1.6;
+    scroll-behavior: smooth;
 }
 
-.logo {
-    color: #32CD32; /* Accent Green */
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.nav-links a {
-    color: #cccccc; /* Light Grey for links */
-    text-decoration: none;
-    margin-left: 25px;
-    padding: 5px 0;
-    transition: color 0.3s, box-shadow 0.3s;
-}
-
-/* LED Hover Effect for Navigation */
-.nav-links a:hover,
-.nav-links a.active {
-    color: #32CD32; /* Accent Green on hover/active */
-    box-shadow: 0 1px 0 0 #32CD32; /* Small LED line indicator */
-}
-
-/* --- General Content Structure & Buttons --- */
+/* Container for Page Content */
 .container {
-    width: 90%;
     max-width: 1200px;
-    margin: 40px auto;
+    margin: 0 auto;
     padding: 20px;
+    padding-top: 100px; /* Space for fixed navigation bar */
 }
 
 h1, h2, h3 {
-    color: #32CD32; /* Accent Green Headings */
+    color: #32CD32; /* Lime Green/LED Color */
+    margin-bottom: 15px;
 }
 
+p {
+    margin-bottom: 15px;
+}
+
+/* --- NAVIGATION BAR STYLES --- */
+.navbar {
+    background-color: #000000;
+    color: #fff;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 500;
+    border-bottom: 2px solid #1E8449; /* Darker Green Border */
+    box-shadow: 0 4px 12px rgba(50, 205, 50, 0.1);
+}
+
+.logo {
+    color: #32CD32;
+    font-size: 1.8em;
+    font-weight: bold;
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+.nav-links a {
+    color: #cccccc;
+    text-decoration: none;
+    margin-left: 25px;
+    padding: 8px 0;
+    transition: color 0.3s, border-bottom 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: #fff;
+    border-bottom: 2px solid #32CD32;
+}
+
+/* --- CALL TO ACTION BUTTONS (CTA) --- */
 .cta-button {
-    background-color: #32CD32; /* Accent Green Button */
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #32CD32;
     color: #0a0a0a;
-    padding: 12px 25px;
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
-    transition: background-color 0.3s, box-shadow 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
+    text-align: center;
+    cursor: pointer;
     border: none;
 }
 
-/* LED Hover Effect for Buttons */
 .cta-button:hover {
     background-color: #39db39;
-    box-shadow: 0 0 10px rgba(50, 205, 50, 0.7); /* Subtle Green Glow */
+    transform: translateY(-2px);
 }
 
-/* --- Search Bar Styling --- */
-.search-container {
-    margin: 40px 0;
+/* --- FOOTER --- */
+.footer {
     text-align: center;
-}
-.search-container input[type="text"] {
-    width: 60%;
-    padding: 15px;
-    border: 2px solid #1E8449; /* Darker Green border */
-    background-color: #1a1a1a;
-    color: #ffffff;
-    font-size: 16px;
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.search-container input[type="text"]:focus {
-    border-color: #32CD32; /* Accent Green on focus */
-    box-shadow: 0 0 8px #32CD32; /* LED Focus Glow */
-    outline: none;
-}
-
-/* --- Resource Cards (Books Page) --- */
-.resource-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 20px;
-}
-
-.resource-card {
-    background-color: #1a1a1a;
     padding: 20px;
-    border-left: 4px solid #1E8449; /* Darker Green accent line */
-    border-radius: 5px;
-    transition: transform 0.2s, box-shadow 0.3s;
-    position: relative;
-}
-
-.resource-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(50, 205, 50, 0.2); /* Lift and Glow Effect */
-}
-.details {
+    margin-top: 50px;
     color: #888888;
-    font-size: 14px;
-    margin-top: 10px;
-}
-.download-button {
-    display: block;
-    text-align: center;
-    margin-top: 15px;
+    border-top: 1px solid #1a1a1a;
 }
 
-/* --- Floating WhatsApp Icon --- */
+/* --- FLOATING WHATSAPP ICON --- */
 .whatsapp-float {
     position: fixed;
     width: 60px;
     height: 60px;
-    bottom: 30px;
-    right: 30px;
-    background-color: #32CD32; /* Accent Green */
-    color: #FFF;
-    border-radius: 50%;
+    bottom: 40px;
+    right: 40px;
+    background-color: #075E54; /* WhatsApp Green */
+    color: #fff;
+    border-radius: 50px;
     text-align: center;
     font-size: 30px;
     line-height: 60px;
-    z-index: 100;
-    transition: box-shadow 0.3s;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
-
-/* LED Hover for Float Icon */
 .whatsapp-float:hover {
-    box-shadow: 0 0 20px rgba(50, 205, 50, 1);
-    animation: pulse 1s infinite alternate;
+    background-color: #128C7E;
 }
 
-@keyframes pulse {
-    from { box-shadow: 0 0 10px rgba(50, 205, 50, 0.8); }
-    to { box-shadow: 0 0 20px rgba(50, 205, 50, 1); }
-}
-
-/* --- Project Card Styling (order-projects.html) --- */
-.project-card {
-    background-color: #1a1a1a;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-}
-
-/* LED Hover for Project Card */
-.project-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 10px 30px rgba(50, 205, 50, 0.4);
-}
-
-.project-card img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
-    transition: filter 0.3s;
-    filter: brightness(0.7); /* Slightly dim the image initially */
-}
-
-.project-card:hover img {
-    filter: brightness(1); /* Brighten on hover */
-}
-
-.project-info {
-    padding: 20px;
-}
-
-.project-price {
-    color: #32CD32;
-    font-weight: bold;
-    font-size: 1.4em;
-    margin-top: 10px;
-}
-
-.project-whatsapp-icon {
-    position: absolute;
-    bottom: 15px;
-    right: 15px;
-    background-color: #32CD32;
-    border-radius: 50%;
-    padding: 10px;
-    line-height: 0;
-    opacity: 0; /* Hidden initially */
-    transition: opacity 0.3s;
-}
-.project-card:hover .project-whatsapp-icon {
-    opacity: 1; /* Visible on hover */
-}
-
-/* --- Form Group Styling (for contact.html) --- */
-.form-group {
-    margin-bottom: 20px;
-}
-.form-group label {
-    display: block;
-    margin-bottom: 8px;
-    color: #32CD32;
-    font-weight: bold;
-}
-.form-group input[type="text"],
-.form-group input[type="email"],
-.form-group textarea {
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #1E8449;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    font-size: 16px;
-    border-radius: 4px;
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
-    transition: border-color 0.3s, box-shadow 0.3s;
-}
-
-.form-group input:focus,
-.form-group textarea:focus {
-    border-color: #32CD32;
-    box-shadow: 0 0 8px #32CD32; /* LED Focus Glow */
-    outline: none;
-}
-
-
-/* --- Footer --- */
-.footer {
-    background-color: #000000;
+/* --- RESOURCE/SUBJECT GRID STYLES (Used in Home & Resource pages) --- */
+.resource-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
     text-align: center;
-    padding: 20px;
+}
+
+.resource-card {
+    background-color: #1a1a1a;
+    padding: 30px;
+    border: 2px solid #1E8449; 
+    border-radius: 8px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: left;
+    color: #cccccc;
+}
+
+.resource-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 5px 20px rgba(50, 205, 50, 0.4); 
+}
+
+.resource-card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.resource-card p.details {
     color: #888888;
-    border-top: 2px solid #1E8449;
-    margin-top: 50px;
+    font-size: 0.9em;
+    margin-bottom: 0;
+}
+
+/* --- TABLE STYLES (Used in Subject Pages) --- */
+.resource-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+.resource-table th, .resource-table td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #1E8449;
+}
+.resource-table th {
+    background-color: #1a1a1a;
+    color: #32CD32;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+.resource-table tr:hover {
+    background-color: #111111;
+}
+
+/* Action Button Group Styling */
+.action-button-group a, .action-button-group button {
+    margin-right: 10px;
+    font-size: 0.8em;
+    padding: 8px 15px;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    border-radius: 5px;
+    font-family: inherit;
+    font-weight: bold;
+}
+.view-pdf { background-color: #1E8449; color: #fff;} 
+.view-pdf:hover { background-color: #32CD32; }
+.download-pdf { background-color: #32CD32; color: #0a0a0a;} 
+.download-pdf:hover { background-color: #39db39; }
+.whatsapp-link { background-color: #075E54; color: #fff;}
+.whatsapp-link:hover { background-color: #128C7E; }
+
+/* --- HOMEPAGE SPECIFIC STYLES --- */
+.home-box img {
+    width: 80px; 
+    height: 80px;
+    margin-bottom: 20px;
+    border-radius: 50%;
+    border: 3px solid #32CD32;
+    object-fit: cover;
+}
+
+/* --- MEDIA QUERIES for Responsiveness --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-links {
+        margin-top: 10px;
+    }
+    .nav-links a {
+        margin-left: 0;
+        margin-right: 15px;
+        display: inline-block;
+    }
+    .container {
+        padding-top: 120px;
+    }
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+        bottom: 20px;
+        right: 20px;
+        font-size: 25px;
+        line-height: 50px;
+    }
 }
