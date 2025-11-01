@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Primary Level</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    </head>
+<body>
+
+    <header class="navbar">
+        <a href="index.html" class="logo">ZIMSEC LIBRARY</a>
+        <nav class="nav-links">
+            <a href="index.html">HOME</a>
+            <a href="resources-main.html" class="active">RESOURCES</a>
+            <a href="order-projects.html">PROJECTS/ORDER</a>
+            <a href="contact.html">CONTACT US</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1><i class="fas fa-school"></i> PRIMARY LEVEL (Grade 1-7)</h1>
+        <p style="color: #9BB8D4;">
+            Back to <a href="resources-main.html" style="color: #FF9800;">Academic Levels</a>
+        </p>
+
+        <h3 style="margin-top: 30px;">Available Subject Materials</h3>
+
+        <table class="resource-table">
+            <thead>
+                <tr>
+                    <th>Description</th>
+                    <th>Grade</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Grade 7 Revision Paper - General Knowledge</td>
+                    <td>Grade 7</td>
+                    <td class="action-button-group">
+                        <button onclick="viewPdf('https://docs.google.com/viewer?url=https://drive.google.com/uc?id=YOUR_PRIMARY_GK_FILE_ID&embedded=true')" 
+                                class="view-pdf">
+                            <i class="fas fa-eye"></i> View Paper
+                        </button>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Grade 5 Notes - Environmental Science</td>
+                    <td>Grade 5</td>
+                    <td class="action-button-group">
+                        <button onclick="viewPdf('https://docs.google.com/viewer?url=https://drive.google.com/uc?id=YOUR_PRIMARY_ES_FILE_ID&embedded=true')" 
+                                class="view-pdf">
+                            <i class="fas fa-eye"></i> View Notes
+                        </button>
+                    </td>
+                </tr>
+
+                </tbody>
+        </table>
+    </main>
+
+    <a href="https://whatsapp.com/channel/0029VbAdOQuFi8xTtr39BB1D" class="whatsapp-float" target="_blank" title="ZIMSEC PAST PAPERS Channel">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="footer">
+        <p>&copy; 2025 ZIMSEC Library. All Rights Reserved. | Designed by ELONSK TP.</p>
+    </footer>
+
+    <script>
+        function viewPdf(viewerUrl) {
+            window.open(viewerUrl, '_blank');
+        }
+    </script>
+</body>
+</html>
