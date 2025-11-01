@@ -1,6 +1,6 @@
- /*
+/*
  * ZIMSEC Library Website: Primary Stylesheet
- * Theme: Black & Green LED
+ * New Theme: Marine Blue & Electric Orange
  */
 
 /* General Reset and Base Styles */
@@ -12,8 +12,8 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #0a0a0a; /* Deep Black Background */
-    color: #cccccc; /* Light Gray Text */
+    background-color: #0D1A2F; /* Dark Marine Blue Background */
+    color: #E0E7FF; /* Pale Blue/White Text */
     line-height: 1.6;
     scroll-behavior: smooth;
 }
@@ -27,7 +27,7 @@ body {
 }
 
 h1, h2, h3 {
-    color: #32CD32; /* Lime Green/LED Color */
+    color: #5CA0F0; /* Bright Sky Blue/Primary Highlight */
     margin-bottom: 15px;
 }
 
@@ -37,7 +37,7 @@ p {
 
 /* --- NAVIGATION BAR STYLES --- */
 .navbar {
-    background-color: #000000;
+    background-color: #0B1627; /* Slightly darker than body for depth */
     color: #fff;
     padding: 15px 30px;
     display: flex;
@@ -47,12 +47,12 @@ p {
     top: 0;
     width: 100%;
     z-index: 500;
-    border-bottom: 2px solid #1E8449; /* Darker Green Border */
-    box-shadow: 0 4px 12px rgba(50, 205, 50, 0.1);
+    border-bottom: 2px solid #24406C; /* Muted Blue Border */
+    box-shadow: 0 4px 12px rgba(92, 160, 240, 0.15);
 }
 
 .logo {
-    color: #32CD32;
+    color: #FF9800; /* Orange/Gold Logo */
     font-size: 1.8em;
     font-weight: bold;
     text-decoration: none;
@@ -60,7 +60,7 @@ p {
 }
 
 .nav-links a {
-    color: #cccccc;
+    color: #B0C4DE; /* Subtle light blue */
     text-decoration: none;
     margin-left: 25px;
     padding: 8px 0;
@@ -69,15 +69,15 @@ p {
 
 .nav-links a:hover, .nav-links a.active {
     color: #fff;
-    border-bottom: 2px solid #32CD32;
+    border-bottom: 2px solid #5CA0F0; /* Bright Sky Blue hover underline */
 }
 
 /* --- CALL TO ACTION BUTTONS (CTA) --- */
 .cta-button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #32CD32;
-    color: #0a0a0a;
+    background-color: #FF9800; /* Electric Orange/Gold Accent */
+    color: #0D1A2F; /* Dark Blue Text on CTA */
     text-decoration: none;
     border-radius: 5px;
     font-weight: bold;
@@ -88,7 +88,7 @@ p {
 }
 
 .cta-button:hover {
-    background-color: #39db39;
+    background-color: #FFA726; 
     transform: translateY(-2px);
 }
 
@@ -97,7 +97,7 @@ p {
     text-align: center;
     padding: 20px;
     margin-top: 50px;
-    color: #888888;
+    color: #6C7A90; /* Muted footer text */
     border-top: 1px solid #1a1a1a;
 }
 
@@ -108,7 +108,7 @@ p {
     height: 60px;
     bottom: 40px;
     right: 40px;
-    background-color: #075E54; /* WhatsApp Green */
+    background-color: #4CAF50; /* Standard Green */
     color: #fff;
     border-radius: 50px;
     text-align: center;
@@ -118,7 +118,7 @@ p {
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 .whatsapp-float:hover {
-    background-color: #128C7E;
+    background-color: #66BB6A;
 }
 
 /* --- RESOURCE/SUBJECT GRID STYLES (Used in Home & Resource pages) --- */
@@ -131,18 +131,18 @@ p {
 }
 
 .resource-card {
-    background-color: #1a1a1a;
+    background-color: #1a2a47; /* Slightly lighter blue for cards */
     padding: 30px;
-    border: 2px solid #1E8449; 
+    border: 2px solid #24406C; /* Muted Blue Border */
     border-radius: 8px;
     transition: transform 0.3s, box-shadow 0.3s;
     text-align: left;
-    color: #cccccc;
+    color: #E0E7FF;
 }
 
 .resource-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 5px 20px rgba(50, 205, 50, 0.4); 
+    box-shadow: 0 5px 20px rgba(92, 160, 240, 0.4); /* Blue Shadow on Hover */
 }
 
 .resource-card h3 {
@@ -151,7 +151,7 @@ p {
 }
 
 .resource-card p.details {
-    color: #888888;
+    color: #9BB8D4;
     font-size: 0.9em;
     margin-bottom: 0;
 }
@@ -165,16 +165,16 @@ p {
 .resource-table th, .resource-table td {
     padding: 15px;
     text-align: left;
-    border-bottom: 1px solid #1E8449;
+    border-bottom: 1px solid #24406C;
 }
 .resource-table th {
-    background-color: #1a1a1a;
-    color: #32CD32;
+    background-color: #1a2a47; 
+    color: #5CA0F0;
     font-weight: bold;
     text-transform: uppercase;
 }
 .resource-table tr:hover {
-    background-color: #111111;
+    background-color: #14213d; /* Darker blue on row hover */
 }
 
 /* Action Button Group Styling */
@@ -190,12 +190,15 @@ p {
     font-family: inherit;
     font-weight: bold;
 }
-.view-pdf { background-color: #1E8449; color: #fff;} 
-.view-pdf:hover { background-color: #32CD32; }
-.download-pdf { background-color: #32CD32; color: #0a0a0a;} 
-.download-pdf:hover { background-color: #39db39; }
-.whatsapp-link { background-color: #075E54; color: #fff;}
-.whatsapp-link:hover { background-color: #128C7E; }
+
+/* Specific Button Styles */
+.view-pdf { 
+    background-color: #00BCD4; /* Cyan/Aqua for Viewing */
+    color: #fff;
+} 
+.view-pdf:hover { 
+    background-color: #4DD0E1; 
+}
 
 /* --- HOMEPAGE SPECIFIC STYLES --- */
 .home-box img {
@@ -203,7 +206,7 @@ p {
     height: 80px;
     margin-bottom: 20px;
     border-radius: 50%;
-    border: 3px solid #32CD32;
+    border: 3px solid #5CA0F0;
     object-fit: cover;
 }
 
