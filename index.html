@@ -13,63 +13,59 @@
         <a href="index.html" class="logo">ZIIMSEC LIBRARY</a>
         <nav class="nav-links">
             <a href="index.html" class="active">HOME</a>
-            <a href="books.html">RESOURCES</a>
+            <a href="resources-main.html">RESOURCES</a>
             <a href="order-projects.html">PROJECTS/ORDER</a>
             <a href="contact.html">CONTACT US</a>
         </nav>
     </header>
 
     <main class="container">
-        <section class="hero-section" style="text-align: center; padding: 80px 20px; background: url('placeholder-study-group.jpg') no-repeat center center/cover; margin-bottom: 40px; border-radius: 8px;">
-            <h1 style="color: #ffffff; text-shadow: 0 0 10px rgba(0,0,0,0.8);">Your Digital ZIMSEC Study Hub</h1>
-            <p style="color: #cccccc; margin-bottom: 30px; text-shadow: 0 0 5px rgba(0,0,0,0.8);">Find Past Papers, Syllabi, and Notes Instantly.</p>
+        <section style="text-align: center; padding: 40px 20px; margin-bottom: 40px; border-radius: 8px; border-bottom: 1px solid #1E8449;">
+            <h1 style="color: #32CD32;">Your Digital ZIMSEC Study Hub</h1>
+            <p style="color: #cccccc;">Quickly access Past Papers, Study Channels, and Project Orders below.</p>
         </section>
 
-        <div class="search-container">
-            <form onsubmit="return transferSearchQuery();">
-                <input type="text" id="homeSearch" placeholder="Search by Subject, Level, or Year (e.g., 'O-Level Maths 2023')" required>
-                <button type="submit" class="cta-button" style="display:none;">Search</button>
-            </form>
+        <div class="resource-grid home-grid">
+            
+            <div class="resource-card home-box" style="text-align: center;">
+                <img src="images/channel1-icon.png" alt="WhatsApp Channel Icon">
+                
+                <h3 style="color: #32CD32;"><i class="fab fa-whatsapp"></i> ZIMSEC PAST PAPERS CHANNEL</h3>
+                <p style="color: #cccccc; margin-bottom: 20px;">Join our primary WhatsApp channel for daily study materials, papers, and updates.</p>
+                <a href="https://whatsapp.com/channel/0029VbAdOQuFi8xTtr39BB1D" target="_blank" class="cta-button" style="background-color: #075E54;">
+                    <i class="fas fa-external-link-alt"></i> Join Now
+                </a>
+            </div>
+            
+            <div class="resource-card home-box" style="text-align: center;">
+                <img src="images/subjects-icon.png" alt="Library Books Icon">
+                
+                <h3 style="color: #32CD32;"><i class="fas fa-scroll"></i> VIEW ALL RESOURCES</h3>
+                <p style="color: #cccccc; margin-bottom: 20px;">Browse our full catalog by selecting your subject level (O-Level, A-Level).</p>
+                <a href="resources-main.html" class="cta-button">
+                    <i class="fas fa-arrow-right"></i> Go to Subjects
+                </a>
+            </div>
+
+            <div class="resource-card home-box" style="text-align: center;">
+                <img src="images/channel2-icon.png" alt="Project Code Icon">
+                
+                <h3 style="color: #32CD32;"><i class="fas fa-code"></i> HERITAGE BASED PROJECTS</h3>
+                <p style="color: #cccccc; margin-bottom: 20px;">Connect with our second channel for web design services, portfolio orders, and pricing.</p>
+                <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p" target="_blank" class="cta-button" style="background-color: #000000; border: 1px solid #32CD32;">
+                    <i class="fas fa-handshake"></i> Order Projects
+                </a>
+            </div>
         </div>
-
-        <section class="resource-grid">
-            <div class="resource-card">
-                <h3>O-Level Papers <i class="fas fa-microchip" style="color:#32CD32;"></i></h3>
-                <p class="details">Access all Ordinary Level Examination Papers.</p>
-                <a href="books.html#Olevel_Science" class="cta-button download-button">Go to O-Level</a>
-            </div>
-            <div class="resource-card">
-                <h3>A-Level Notes <i class="fas fa-lightbulb" style="color:#32CD32;"></i></h3>
-                <p class="details">Premium, created Revision Notes and Summaries.</p>
-                <a href="books.html#Alevel_Science" class="cta-button download-button">View A-Level</a>
-            </div>
-            <div class="resource-card">
-                <h3>Official Syllabi <i class="fas fa-scroll" style="color:#32CD32;"></i></h3>
-                <p class="details">Download the latest ZIMSEC Curricula PDFs.</p>
-                <a href="books.html#Olevel_Science" class="cta-button download-button">Get Syllabi</a>
-            </div>
-        </section>
+        
     </main>
 
-    <a href="https://wa.me/263771123456?text=Hi!%20I%20need%20assistance%20with%20a%20past%20paper%20download." class="whatsapp-float" target="_blank" title="Chat on WhatsApp">
+    <a href="https://whatsapp.com/channel/0029Vb5xkBR4inojmTL7FZ3p" class="whatsapp-float" target="_blank" title="HBC HERITAGE BASED PROJECTS Channel">
         <i class="fab fa-whatsapp"></i>
     </a>
 
     <footer class="footer">
         <p>&copy; 2024 ZIIMSEC Library. All Rights Reserved. | Designed with Black & Green LED Theme.</p>
     </footer>
-
-    <script>
-        // FUNCTION TO REDIRECT SEARCH FROM HOME PAGE TO BOOKS PAGE
-        function transferSearchQuery() {
-            const homeSearchInput = document.getElementById('homeSearch');
-            if (homeSearchInput.value.trim() !== '') {
-                // Redirects to books.html and passes the query as a URL parameter
-                window.location.href = 'books.html?query=' + encodeURIComponent(homeSearchInput.value);
-                return false; // Prevent default form submission
-            }
-            return true; 
-        }
-    </script>
 </body>
 </html>
